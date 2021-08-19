@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210818 18:25:47.322" rpa="false" schemaversion="2">
+<suite id="s1" name="Auto Km" source="/Users/laylla.rodrigues/seguro_novo/auto_km">
+<suite id="s1-s1" name="Test" source="/Users/laylla.rodrigues/seguro_novo/auto_km/test">
+<suite id="s1-s1-s1" name="Cotacao" source="/Users/laylla.rodrigues/seguro_novo/auto_km/test/cotacao.robot">
+<test id="s1-s1-s1-t1" name="Selecionando cotar">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://cotacao.youse.com.br/seguro-auto-por-km/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210818 18:25:47.691" level="INFO">Opening browser 'chrome' to base url 'https://cotacao.youse.com.br/seguro-auto-por-km/'.</msg>
+<status status="PASS" starttime="20210818 18:25:47.690" endtime="20210818 18:25:57.417"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210818 18:26:07.424" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210818 18:25:57.419" endtime="20210818 18:26:07.424"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>class:jss5</arg>
+<arg>John Hohn</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:07.426" level="INFO">Typing text 'John Hohn' into text field 'class:jss5'.</msg>
+<status status="PASS" starttime="20210818 18:26:07.425" endtime="20210818 18:26:07.844"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type='tel']</arg>
+<arg>${cpf}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:07.846" level="INFO">Typing text 'Convert To Number 38249531884' into text field 'css:input[type='tel']'.</msg>
+<status status="PASS" starttime="20210818 18:26:07.845" endtime="20210818 18:26:08.363"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type='email']</arg>
+<arg>laylla@teste.com.br</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:08.364" level="INFO">Typing text 'laylla@teste.com.br' into text field 'css:input[type='email']'.</msg>
+<status status="PASS" starttime="20210818 18:26:08.363" endtime="20210818 18:26:08.754"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:input[type='phone']</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:08.754" level="INFO">Typing text 'Convert To Number 11933998877' into text field 'css:input[type='phone']'.</msg>
+<status status="PASS" starttime="20210818 18:26:08.754" endtime="20210818 18:26:09.290"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id:insuredPersonMaritalStatus</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:09.291" level="INFO">Clicking element 'id:insuredPersonMaritalStatus'.</msg>
+<status status="PASS" starttime="20210818 18:26:09.291" endtime="20210818 18:26:09.422"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>class:MuiList-padding</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:09.423" level="INFO">Clicking element 'class:MuiList-padding'.</msg>
+<status status="PASS" starttime="20210818 18:26:09.422" endtime="20210818 18:26:09.704"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>class:MuiIconButton-root</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20210818 18:26:09.706" level="INFO">Selecting checkbox 'class:MuiIconButton-root'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210818 18:26:10.059" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-145.png"&gt;&lt;img src="selenium-screenshot-145.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210818 18:26:09.790" endtime="20210818 18:26:10.059"/>
+</kw>
+<msg timestamp="20210818 18:26:10.065" level="FAIL">Checkbox with locator 'class:MuiIconButton-root' not found.</msg>
+<status status="FAIL" starttime="20210818 18:26:09.705" endtime="20210818 18:26:10.065"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20210818 18:26:10.066" endtime="20210818 18:26:10.066"/>
+</kw>
+<kw name="Encerra sessão" library="base" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210818 18:26:10.290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-146.png"&gt;&lt;img src="selenium-screenshot-146.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210818 18:26:10.067" endtime="20210818 18:26:10.290"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210818 18:26:10.291" endtime="20210818 18:26:10.506"/>
+</kw>
+<status status="PASS" starttime="20210818 18:26:10.066" endtime="20210818 18:26:10.507"/>
+</kw>
+<status status="FAIL" starttime="20210818 18:25:47.689" endtime="20210818 18:26:10.507">Checkbox with locator 'class:MuiIconButton-root' not found.</status>
+</test>
+<status status="FAIL" starttime="20210818 18:25:47.373" endtime="20210818 18:26:10.512"/>
+</suite>
+<status status="FAIL" starttime="20210818 18:25:47.369" endtime="20210818 18:26:10.516"/>
+</suite>
+<status status="FAIL" starttime="20210818 18:25:47.325" endtime="20210818 18:26:10.520"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Auto Km">Auto Km</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test">Auto Km.Test</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Cotacao">Auto Km.Test.Cotacao</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
