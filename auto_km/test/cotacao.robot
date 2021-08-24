@@ -29,7 +29,10 @@ Preenchendo cotação
     Wait Until Element Is Visible  css:div[id="vehicleOwnershipStatus"]
     Click Element                  css:div[id="vehicleOwnershipStatus"]
     Click Element                  css:li[data-value="owned_by_person"]
-    Input Text                     css:div[class="sc-jSFjdj byghvu"]                     ${CEP}
+    Click Element                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input
+    Input Text                     xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input              ${CEP}
+    sleep                           10s
+
 
 
 
