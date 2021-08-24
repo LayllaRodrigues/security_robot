@@ -31,6 +31,7 @@ Preenchendo cotação
     Click Element                  css:li[data-value="owned_by_person"]
     Click Element                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input
     Input Text                     xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input              ${CEP}
+    
     sleep                           10s
 
 
