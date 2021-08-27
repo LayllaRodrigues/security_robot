@@ -51,18 +51,21 @@ Preenchendo cotação
     Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]
     Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]    ${card}
+    Unselect Frame                             
 
-    sleep                                       7s
-
-    # Select Frame                               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
-    Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
-    Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]   9909
-
+    Select Frame                                css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]
+    Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
+    Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]    ${date}
+    Unselect Frame                             
 
 
-    
-  
-                           
+    Select Frame                                css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]
+    Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]
+    Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]    ${cvv}
+    Unselect Frame                             
+
+
+    Input Text        css:input[placeholder="Nome como no cartão"]      ${cardname}
 
 
 *** Variables ***
@@ -75,6 +78,7 @@ ${AddressNumber} =                                                        90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cardname}                                                               John Hohn
+${cvv}                                                                    737
 
 
 
