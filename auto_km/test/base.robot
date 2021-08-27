@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 
 
 *** Variables  ***
-${url}                   https://stage-cotacao.youse.io/seguro-auto-por-km     
+${url}                   https://stage-cotacao.youse.io/seguro-auto-por-km  
 
 *** Keywords ***
 Nova sessão
@@ -12,3 +12,5 @@ Nova sessão
 Encerra sessão
     Capture Page Screenshot
     Close Browser
+
+    

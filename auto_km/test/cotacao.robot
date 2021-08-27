@@ -26,13 +26,16 @@ Preenchendo cotação
     Click Element                               css:div[errorfor="vehicleLicensePlate"]                             
     Element Should Be Visible                   class:hZdnym
 
+    sleep       4s
+
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"]  
     Click Element                               css:li[tabindex="0"][data-value="only_private"]
+
+    sleep       4s
     
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
-
     Wait Until Element Is Visible               css:li[data-value="owned_by_person"]
     Click Element                               css:li[data-value="owned_by_person"]
 
@@ -90,8 +93,4 @@ ${card}                                                                   4111 1
 ${date}                                                                   0330
 ${cardname}                                                               John Hohn
 ${cvv}                                                                    737
-${email}                                                                  km@teste.com.br
-
-
-
-
+${email}                                                                  km@youse.com.br
