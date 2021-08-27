@@ -66,6 +66,9 @@ Preenchendo cotação
 
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]                                             ${cardname}
+    Input Text                                  css:input[id="insuredPersonEmailConfirm"]                                                ${email}
+
+    Click Element                               css:button[class="sc-dIvrsQ fUTxYh"]
 
 
 *** Variables ***
