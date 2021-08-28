@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210827 19:52:14.781" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210828 00:20:37.945" rpa="false" schemaversion="2">
 <suite id="s1" name="Buy With Plate" source="/Users/laylla.rodrigues/seguro_novo/auto_km/test/buy_with_plate.robot">
 <test id="s1-t1" name="Preenchendo cotação">
 <kw name="Nova sessão" library="base" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
-<arg>chrome</arg>
+<arg>headlesschrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20210827 19:52:15.043" level="INFO">Opening browser 'chrome' to base url 'https://stage-cotacao.youse.io/seguro-auto-por-km'.</msg>
-<status status="PASS" starttime="20210827 19:52:15.042" endtime="20210827 19:52:20.549"/>
+<msg timestamp="20210828 00:20:38.151" level="INFO">Opening browser 'headlesschrome' to base url 'https://stage-cotacao.youse.io/seguro-auto-por-km'.</msg>
+<status status="PASS" starttime="20210828 00:20:38.150" endtime="20210828 00:20:41.638"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:15.041" endtime="20210827 19:52:20.550"/>
+<status status="PASS" starttime="20210828 00:20:38.150" endtime="20210828 00:20:41.638"/>
 </kw>
 <kw name="Set Selenium Timeout" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the timeout that is used by various keywords.</doc>
-<status status="PASS" starttime="20210827 19:52:20.551" endtime="20210827 19:52:20.554"/>
+<status status="PASS" starttime="20210828 00:20:41.639" endtime="20210828 00:20:41.642"/>
 </kw>
 <kw name="Preenchendo nome do segurado" library="base">
 <arg>${cardname}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:input[id="insuredPersonName"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:20.555" endtime="20210827 19:52:21.023"/>
+<status status="PASS" starttime="20210828 00:20:41.643" endtime="20210828 00:20:41.862"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[id="insuredPersonName"]</arg>
 <arg>${cardname}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:21.024" level="INFO">Typing text 'John Hohn' into text field 'css:input[id="insuredPersonName"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:21.023" endtime="20210827 19:52:21.327"/>
+<msg timestamp="20210828 00:20:41.864" level="INFO">Typing text 'John Hohn' into text field 'css:input[id="insuredPersonName"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:41.863" endtime="20210828 00:20:42.151"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:20.554" endtime="20210827 19:52:21.327"/>
+<status status="PASS" starttime="20210828 00:20:41.642" endtime="20210828 00:20:42.151"/>
 </kw>
 <kw name="Preenchendo CPF do segurado" library="base">
 <arg>${CPF}</arg>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:input[type='tel']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:21.329" level="INFO">Clicking element 'css:input[type='tel']'.</msg>
-<status status="PASS" starttime="20210827 19:52:21.328" endtime="20210827 19:52:21.492"/>
+<msg timestamp="20210828 00:20:42.153" level="INFO">Clicking element 'css:input[type='tel']'.</msg>
+<status status="PASS" starttime="20210828 00:20:42.153" endtime="20210828 00:20:42.281"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[type='tel']</arg>
 <arg>${CPF}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:21.493" level="INFO">Typing text 'Convert To Number 12345675209' into text field 'css:input[type='tel']'.</msg>
-<status status="PASS" starttime="20210827 19:52:21.493" endtime="20210827 19:52:21.952"/>
+<msg timestamp="20210828 00:20:42.281" level="INFO">Typing text 'Convert To Number 12345675209' into text field 'css:input[type='tel']'.</msg>
+<status status="PASS" starttime="20210828 00:20:42.281" endtime="20210828 00:20:42.630"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:21.328" endtime="20210827 19:52:21.952"/>
+<status status="PASS" starttime="20210828 00:20:42.152" endtime="20210828 00:20:42.630"/>
 </kw>
 <kw name="Preenchendo E-mail do segurado" library="base">
 <arg>${email}</arg>
@@ -56,10 +56,10 @@
 <arg>css:input[type='email']</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:21.954" level="INFO">Typing text 'km@youse.com.br' into text field 'css:input[type='email']'.</msg>
-<status status="PASS" starttime="20210827 19:52:21.953" endtime="20210827 19:52:22.272"/>
+<msg timestamp="20210828 00:20:42.632" level="INFO">Typing text 'km@youse.com.br' into text field 'css:input[type='email']'.</msg>
+<status status="PASS" starttime="20210828 00:20:42.631" endtime="20210828 00:20:42.880"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:21.953" endtime="20210827 19:52:22.272"/>
+<status status="PASS" starttime="20210828 00:20:42.630" endtime="20210828 00:20:42.880"/>
 </kw>
 <kw name="Preenchendo Telefone do segurado" library="base">
 <arg>${phone}</arg>
@@ -67,292 +67,321 @@
 <arg>css:input[type='phone']</arg>
 <arg>${phone}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:22.277" level="INFO">Typing text 'Convert To Number 11933998877' into text field 'css:input[type='phone']'.</msg>
-<status status="PASS" starttime="20210827 19:52:22.276" endtime="20210827 19:52:22.752"/>
+<msg timestamp="20210828 00:20:42.882" level="INFO">Typing text 'Convert To Number 11933998877' into text field 'css:input[type='phone']'.</msg>
+<status status="PASS" starttime="20210828 00:20:42.881" endtime="20210828 00:20:43.238"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:22.273" endtime="20210827 19:52:22.752"/>
+<status status="PASS" starttime="20210828 00:20:42.881" endtime="20210828 00:20:43.238"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>id:insuredPersonMaritalStatus</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20210828 00:20:43.238" endtime="20210828 00:20:43.544"/>
 </kw>
 <kw name="Selecionando status civil" library="base">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>id:insuredPersonMaritalStatus</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:22.754" level="INFO">Clicking element 'id:insuredPersonMaritalStatus'.</msg>
-<status status="PASS" starttime="20210827 19:52:22.754" endtime="20210827 19:52:22.868"/>
+<msg timestamp="20210828 00:20:43.545" level="INFO">Clicking element 'id:insuredPersonMaritalStatus'.</msg>
+<status status="PASS" starttime="20210828 00:20:43.545" endtime="20210828 00:20:43.643"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>class:MuiList-padding</arg>
+<arg>css:li[role="option"][data-value="single"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:22.869" level="INFO">Clicking element 'class:MuiList-padding'.</msg>
-<status status="PASS" starttime="20210827 19:52:22.868" endtime="20210827 19:52:23.081"/>
+<msg timestamp="20210828 00:20:43.644" level="INFO">Clicking element 'css:li[role="option"][data-value="single"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:43.643" endtime="20210828 00:20:43.763"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:22.753" endtime="20210827 19:52:23.082"/>
+<status status="PASS" starttime="20210828 00:20:43.544" endtime="20210828 00:20:43.763"/>
 </kw>
 <kw name="Informando se o segurado é o motorista" library="base">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:23.083" endtime="20210827 19:52:23.129"/>
+<status status="PASS" starttime="20210828 00:20:43.764" endtime="20210828 00:20:43.817"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210828 00:20:43.818" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input'.</msg>
+<status status="PASS" starttime="20210828 00:20:43.817" endtime="20210828 00:20:44.058"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:23.129" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]'.</msg>
-<status status="PASS" starttime="20210827 19:52:23.129" endtime="20210827 19:52:23.430"/>
+<msg timestamp="20210828 00:20:44.059" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]'.</msg>
+<status status="PASS" starttime="20210828 00:20:44.059" endtime="20210828 00:20:44.247"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:23.083" endtime="20210827 19:52:23.430"/>
+<status status="PASS" starttime="20210828 00:20:43.764" endtime="20210828 00:20:44.247"/>
 </kw>
 <kw name="Informando placa" library="base">
 <arg>${Plate}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210828 00:20:46.249" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210828 00:20:44.248" endtime="20210828 00:20:46.250"/>
+</kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:input[id=vehicleLicensePlate]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:23.434" endtime="20210827 19:52:23.496"/>
+<status status="PASS" starttime="20210828 00:20:46.250" endtime="20210828 00:20:46.269"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:input[id=vehicleLicensePlate]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:23.497" level="INFO">Clicking element 'css:input[id=vehicleLicensePlate]'.</msg>
-<status status="PASS" starttime="20210827 19:52:23.497" endtime="20210827 19:52:23.614"/>
+<msg timestamp="20210828 00:20:46.270" level="INFO">Clicking element 'css:input[id=vehicleLicensePlate]'.</msg>
+<status status="PASS" starttime="20210828 00:20:46.270" endtime="20210828 00:20:46.322"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[id=vehicleLicensePlate]</arg>
 <arg>${Plate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:23.615" level="INFO">Typing text 'YOU0000' into text field 'css:input[id=vehicleLicensePlate]'.</msg>
-<status status="PASS" starttime="20210827 19:52:23.615" endtime="20210827 19:52:23.766"/>
+<msg timestamp="20210828 00:20:46.322" level="INFO">Typing text 'YOU0000' into text field 'css:input[id=vehicleLicensePlate]'.</msg>
+<status status="PASS" starttime="20210828 00:20:46.322" endtime="20210828 00:20:46.411"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:div[errorfor="vehicleLicensePlate"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:23.766" level="INFO">Clicking element 'css:div[errorfor="vehicleLicensePlate"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:23.766" endtime="20210827 19:52:23.914"/>
+<msg timestamp="20210828 00:20:46.413" level="INFO">Clicking element 'css:div[errorfor="vehicleLicensePlate"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:46.411" endtime="20210828 00:20:46.507"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>class:hZdnym</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20210827 19:52:24.031" level="INFO">Element 'class:hZdnym' is displayed.</msg>
-<status status="PASS" starttime="20210827 19:52:23.914" endtime="20210827 19:52:24.032"/>
+<msg timestamp="20210828 00:20:46.526" level="INFO">Element 'class:hZdnym' is displayed.</msg>
+<status status="PASS" starttime="20210828 00:20:46.507" endtime="20210828 00:20:46.526"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:23.431" endtime="20210827 19:52:24.032"/>
-</kw>
-<kw name="Scroll Element Into View" library="SeleniumLibrary">
-<arg>css:div[id="vehicleOwnershipStatus"]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" starttime="20210827 19:52:24.033" endtime="20210827 19:52:24.340"/>
+<status status="PASS" starttime="20210828 00:20:44.248" endtime="20210828 00:20:46.526"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>4s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210827 19:52:28.342" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20210827 19:52:24.341" endtime="20210827 19:52:28.342"/>
+<msg timestamp="20210828 00:20:50.529" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20210828 00:20:46.526" endtime="20210828 00:20:50.529"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>css:div[id="vehicleOwnershipStatus"]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20210828 00:20:50.530" endtime="20210828 00:20:50.805"/>
 </kw>
 <kw name="Selecionando tipo de uso do carro" library="base">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:div[id="vehicleUsage"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:28.343" endtime="20210827 19:52:28.364"/>
+<status status="PASS" starttime="20210828 00:20:50.807" endtime="20210828 00:20:50.827"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:div[id="vehicleUsage"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:28.365" level="INFO">Clicking element 'css:div[id="vehicleUsage"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:28.364" endtime="20210827 19:52:28.436"/>
+<msg timestamp="20210828 00:20:50.827" level="INFO">Clicking element 'css:div[id="vehicleUsage"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:50.827" endtime="20210828 00:20:50.898"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="menu-"]/div[3]/ul/li[1]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210828 00:20:50.899" endtime="20210828 00:20:50.942"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>css:li[tabindex="0"][data-value="only_private"]</arg>
+<arg>xpath://*[@id="menu-"]/div[3]/ul/li[1]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:28.437" level="INFO">Clicking element 'css:li[tabindex="0"][data-value="only_private"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:28.436" endtime="20210827 19:52:28.590"/>
+<msg timestamp="20210828 00:20:50.942" level="INFO">Clicking element 'xpath://*[@id="menu-"]/div[3]/ul/li[1]'.</msg>
+<status status="PASS" starttime="20210828 00:20:50.942" endtime="20210828 00:20:51.096"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:28.342" endtime="20210827 19:52:28.590"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>4s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210827 19:52:32.593" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20210827 19:52:28.591" endtime="20210827 19:52:32.593"/>
+<status status="PASS" starttime="20210828 00:20:50.806" endtime="20210828 00:20:51.096"/>
 </kw>
 <kw name="Selecionando tipo de dono do carro" library="base">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>css:div[id="vehicleOwnershipStatus"]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:32.594" endtime="20210827 19:52:32.613"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>css:div[id="vehicleOwnershipStatus"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:32.613" level="INFO">Clicking element 'css:div[id="vehicleOwnershipStatus"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:32.613" endtime="20210827 19:52:32.690"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>css:li[data-value="owned_by_person"]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:32.690" endtime="20210827 19:52:32.718"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>css:li[data-value="owned_by_person"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:32.718" level="INFO">Clicking element 'css:li[data-value="owned_by_person"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:32.718" endtime="20210827 19:52:32.876"/>
-</kw>
-<status status="PASS" starttime="20210827 19:52:32.593" endtime="20210827 19:52:32.877"/>
-</kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>4s</arg>
+<arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20210827 19:52:36.879" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20210827 19:52:32.878" endtime="20210827 19:52:36.880"/>
+<msg timestamp="20210828 00:20:53.099" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210828 00:20:51.098" endtime="20210828 00:20:53.099"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css:div[id="vehicleOwnershipStatus"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210828 00:20:53.100" endtime="20210828 00:20:53.116"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css:div[id="vehicleOwnershipStatus"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210828 00:20:53.117" level="INFO">Clicking element 'css:div[id="vehicleOwnershipStatus"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:53.117" endtime="20210828 00:20:53.186"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css:li[data-value="owned_by_person"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210828 00:20:53.186" level="INFO">Clicking element 'css:li[data-value="owned_by_person"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:53.186" endtime="20210828 00:20:53.315"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css:li[data-value="owned_by_person"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210828 00:20:53.316" level="INFO">Clicking element 'css:li[data-value="owned_by_person"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:53.315" endtime="20210828 00:20:53.370"/>
+</kw>
+<status status="PASS" starttime="20210828 00:20:51.097" endtime="20210828 00:20:53.371"/>
 </kw>
 <kw name="Informando CEP" library="base">
 <arg>${CEP}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>4</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210828 00:20:57.373" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20210828 00:20:53.371" endtime="20210828 00:20:57.373"/>
+</kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:36.882" level="INFO">Clicking element 'css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:36.881" endtime="20210827 19:52:36.988"/>
+<msg timestamp="20210828 00:20:57.374" level="INFO">Clicking element 'css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:57.373" endtime="20210828 00:20:57.434"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input</arg>
 <arg>${CEP}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:36.990" level="INFO">Typing text 'Convert To Number 04538133' into text field 'xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input'.</msg>
-<status status="PASS" starttime="20210827 19:52:36.989" endtime="20210827 19:52:37.460"/>
+<msg timestamp="20210828 00:20:57.434" level="INFO">Typing text 'Convert To Number 04538133' into text field 'xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input'.</msg>
+<status status="PASS" starttime="20210828 00:20:57.434" endtime="20210828 00:20:57.778"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:36.880" endtime="20210827 19:52:37.461"/>
+<status status="PASS" starttime="20210828 00:20:53.371" endtime="20210828 00:20:57.778"/>
 </kw>
 <kw name="Informando numero do endereço de pernoite" library="base">
 <arg>${AddressNumber}</arg>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:input[id="insuredPersonAddressNeighborhood"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:37.462" level="INFO">Clicking element 'css:input[id="insuredPersonAddressNeighborhood"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:37.462" endtime="20210827 19:52:37.579"/>
+<msg timestamp="20210828 00:20:57.779" level="INFO">Clicking element 'css:input[id="insuredPersonAddressNeighborhood"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:57.779" endtime="20210828 00:20:57.904"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[id="insuredPersonAddressNumber"]</arg>
 <arg>${AddressNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:37.580" level="INFO">Typing text '90' into text field 'css:input[id="insuredPersonAddressNumber"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:37.580" endtime="20210827 19:52:37.848"/>
+<msg timestamp="20210828 00:20:57.904" level="INFO">Typing text '90' into text field 'css:input[id="insuredPersonAddressNumber"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:57.904" endtime="20210828 00:20:58.061"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:37.849" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]'.</msg>
-<status status="PASS" starttime="20210827 19:52:37.848" endtime="20210827 19:52:37.957"/>
+<msg timestamp="20210828 00:20:58.062" level="INFO">Clicking element 'xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]'.</msg>
+<status status="PASS" starttime="20210828 00:20:58.062" endtime="20210828 00:20:58.162"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:37.461" endtime="20210827 19:52:37.957"/>
+<status status="PASS" starttime="20210828 00:20:57.778" endtime="20210828 00:20:58.162"/>
 </kw>
 <kw name="Clicando botton continuar" library="base">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:button[class="sc-dIvrsQ fUTxYh"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:37.959" endtime="20210827 19:52:38.061"/>
+<status status="PASS" starttime="20210828 00:20:58.163" endtime="20210828 00:20:58.236"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:button[class="sc-dIvrsQ fUTxYh"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:38.062" level="INFO">Clicking element 'css:button[class="sc-dIvrsQ fUTxYh"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:38.061" endtime="20210827 19:52:38.335"/>
+<msg timestamp="20210828 00:20:58.237" level="INFO">Clicking element 'css:button[class="sc-dIvrsQ fUTxYh"]'.</msg>
+<status status="PASS" starttime="20210828 00:20:58.236" endtime="20210828 00:20:58.326"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:37.958" endtime="20210827 19:52:38.336"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210828 00:21:00.327" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210828 00:20:58.326" endtime="20210828 00:21:00.328"/>
+</kw>
+<status status="PASS" starttime="20210828 00:20:58.163" endtime="20210828 00:21:00.328"/>
 </kw>
 <kw name="Selecionando plano" library="base">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:div[class="sc-jSFjdj jRglJP"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:38.338" endtime="20210827 19:52:39.826"/>
+<status status="PASS" starttime="20210828 00:21:00.329" endtime="20210828 00:21:00.985"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:div[class="sc-jSFjdj jRglJP"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:39.827" level="INFO">Clicking element 'css:div[class="sc-jSFjdj jRglJP"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:39.827" endtime="20210827 19:52:39.920"/>
+<msg timestamp="20210828 00:21:00.986" level="INFO">Clicking element 'css:div[class="sc-jSFjdj jRglJP"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:00.986" endtime="20210828 00:21:01.098"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:38.337" endtime="20210827 19:52:39.921"/>
+<status status="PASS" starttime="20210828 00:21:00.328" endtime="20210828 00:21:01.098"/>
 </kw>
 <kw name="Preenchendo cartão de crédito" library="base">
 <arg>${card}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:39.924" endtime="20210827 19:52:46.470"/>
+<status status="PASS" starttime="20210828 00:21:01.100" endtime="20210828 00:21:07.578"/>
 </kw>
 <kw name="Select Frame" library="SeleniumLibrary">
 <arg>css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]</arg>
 <doc>Sets frame identified by ``locator`` as the current frame.</doc>
-<msg timestamp="20210827 19:52:46.471" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:46.470" endtime="20210827 19:52:46.517"/>
+<msg timestamp="20210828 00:21:07.579" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:07.578" endtime="20210828 00:21:07.630"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:46.518" endtime="20210827 19:52:46.547"/>
+<status status="PASS" starttime="20210828 00:21:07.631" endtime="20210828 00:21:07.651"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]</arg>
 <arg>${card}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:46.548" level="INFO">Typing text '4111 1111 1111 1111' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:46.548" endtime="20210827 19:52:46.788"/>
+<msg timestamp="20210828 00:21:07.652" level="INFO">Typing text '4111 1111 1111 1111' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:07.651" endtime="20210828 00:21:07.870"/>
 </kw>
 <kw name="Unselect Frame" library="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" starttime="20210827 19:52:46.788" endtime="20210827 19:52:46.793"/>
+<status status="PASS" starttime="20210828 00:21:07.871" endtime="20210828 00:21:07.889"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:39.922" endtime="20210827 19:52:46.793"/>
+<status status="PASS" starttime="20210828 00:21:01.099" endtime="20210828 00:21:07.889"/>
 </kw>
 <kw name="Preenchendo data de validade do cartão" library="base">
 <arg>${date}</arg>
 <kw name="Select Frame" library="SeleniumLibrary">
 <arg>css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]</arg>
 <doc>Sets frame identified by ``locator`` as the current frame.</doc>
-<msg timestamp="20210827 19:52:46.796" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:46.795" endtime="20210827 19:52:46.881"/>
+<msg timestamp="20210828 00:21:07.890" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:07.890" endtime="20210828 00:21:07.930"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:46.881" endtime="20210827 19:52:46.904"/>
+<status status="PASS" starttime="20210828 00:21:07.930" endtime="20210828 00:21:07.949"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]</arg>
 <arg>${date}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:46.905" level="INFO">Typing text '0330' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:46.904" endtime="20210827 19:52:47.034"/>
+<msg timestamp="20210828 00:21:07.950" level="INFO">Typing text '0330' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:07.949" endtime="20210828 00:21:08.061"/>
 </kw>
 <kw name="Unselect Frame" library="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" starttime="20210827 19:52:47.034" endtime="20210827 19:52:47.039"/>
+<status status="PASS" starttime="20210828 00:21:08.061" endtime="20210828 00:21:08.080"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:46.794" endtime="20210827 19:52:47.039"/>
+<status status="PASS" starttime="20210828 00:21:07.889" endtime="20210828 00:21:08.080"/>
 </kw>
 <kw name="Preenchendo cvv" library="base">
 <arg>${cvv}</arg>
 <kw name="Select Frame" library="SeleniumLibrary">
 <arg>css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]</arg>
 <doc>Sets frame identified by ``locator`` as the current frame.</doc>
-<msg timestamp="20210827 19:52:47.041" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:47.041" endtime="20210827 19:52:47.150"/>
+<msg timestamp="20210828 00:21:08.082" level="INFO">Selecting frame 'css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:08.082" endtime="20210828 00:21:08.126"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210827 19:52:47.150" endtime="20210827 19:52:47.180"/>
+<status status="PASS" starttime="20210828 00:21:08.126" endtime="20210828 00:21:08.146"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]</arg>
 <arg>${cvv}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:47.181" level="INFO">Typing text '737' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:47.181" endtime="20210827 19:52:47.267"/>
+<msg timestamp="20210828 00:21:08.147" level="INFO">Typing text '737' into text field 'css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:08.146" endtime="20210828 00:21:08.222"/>
 </kw>
 <kw name="Unselect Frame" library="SeleniumLibrary">
 <doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" starttime="20210827 19:52:47.267" endtime="20210827 19:52:47.290"/>
+<status status="PASS" starttime="20210828 00:21:08.222" endtime="20210828 00:21:08.231"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:47.040" endtime="20210827 19:52:47.290"/>
+<status status="PASS" starttime="20210828 00:21:08.081" endtime="20210828 00:21:08.232"/>
 </kw>
 <kw name="Preenchendo nome do dono do cartão" library="base">
 <arg>${cardname}</arg>
@@ -360,10 +389,10 @@
 <arg>css:input[placeholder="Nome como no cartão"]</arg>
 <arg>${cardname}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:47.295" level="INFO">Typing text 'John Hohn' into text field 'css:input[placeholder="Nome como no cartão"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:47.293" endtime="20210827 19:52:47.647"/>
+<msg timestamp="20210828 00:21:08.233" level="INFO">Typing text 'John Hohn' into text field 'css:input[placeholder="Nome como no cartão"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:08.233" endtime="20210828 00:21:08.472"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:47.291" endtime="20210827 19:52:47.648"/>
+<status status="PASS" starttime="20210828 00:21:08.232" endtime="20210828 00:21:08.472"/>
 </kw>
 <kw name="Confirmando email" library="base">
 <arg>${email}</arg>
@@ -371,49 +400,49 @@
 <arg>css:input[id="insuredPersonEmailConfirm"]</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:47.649" level="INFO">Typing text 'km@youse.com.br' into text field 'css:input[id="insuredPersonEmailConfirm"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:47.649" endtime="20210827 19:52:47.962"/>
+<msg timestamp="20210828 00:21:08.473" level="INFO">Typing text 'km@youse.com.br' into text field 'css:input[id="insuredPersonEmailConfirm"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:08.473" endtime="20210828 00:21:08.682"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:47.648" endtime="20210827 19:52:47.964"/>
+<status status="PASS" starttime="20210828 00:21:08.472" endtime="20210828 00:21:08.683"/>
 </kw>
 <kw name="Realizando o pagamento e encerrando a compra" library="base">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>css:button[class="sc-dIvrsQ fUTxYh"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210827 19:52:47.966" level="INFO">Clicking element 'css:button[class="sc-dIvrsQ fUTxYh"]'.</msg>
-<status status="PASS" starttime="20210827 19:52:47.966" endtime="20210827 19:52:48.170"/>
+<msg timestamp="20210828 00:21:08.685" level="INFO">Clicking element 'css:button[class="sc-dIvrsQ fUTxYh"]'.</msg>
+<status status="PASS" starttime="20210828 00:21:08.684" endtime="20210828 00:21:08.831"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:47.965" endtime="20210827 19:52:48.170"/>
+<status status="PASS" starttime="20210828 00:21:08.683" endtime="20210828 00:21:08.831"/>
 </kw>
 <kw name="Tela de sucesso" library="base">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <arg>Recebemos suas informações!</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20210827 19:52:48.171" endtime="20210827 19:52:56.041"/>
+<status status="PASS" starttime="20210828 00:21:08.832" endtime="20210828 00:21:20.548"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Recebemos suas informações!</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20210827 19:52:56.058" level="INFO">Current page contains text 'Recebemos suas informações!'.</msg>
-<status status="PASS" starttime="20210827 19:52:56.042" endtime="20210827 19:52:56.059"/>
+<msg timestamp="20210828 00:21:20.559" level="INFO">Current page contains text 'Recebemos suas informações!'.</msg>
+<status status="PASS" starttime="20210828 00:21:20.548" endtime="20210828 00:21:20.559"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:48.171" endtime="20210827 19:52:56.059"/>
+<status status="PASS" starttime="20210828 00:21:08.832" endtime="20210828 00:21:20.560"/>
 </kw>
 <kw name="Encerra sessão" library="base" type="TEARDOWN">
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20210827 19:52:56.358" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1189.png"&gt;&lt;img src="selenium-screenshot-1189.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210827 19:52:56.060" endtime="20210827 19:52:56.358"/>
+<msg timestamp="20210828 00:21:20.783" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1384.png"&gt;&lt;img src="selenium-screenshot-1384.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210828 00:21:20.561" endtime="20210828 00:21:20.783"/>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210827 19:52:56.359" endtime="20210827 19:52:56.658"/>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210828 00:21:20.784" endtime="20210828 00:21:20.860"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:56.059" endtime="20210827 19:52:56.659"/>
+<status status="PASS" starttime="20210828 00:21:20.560" endtime="20210828 00:21:20.861"/>
 </kw>
-<status status="PASS" starttime="20210827 19:52:15.040" endtime="20210827 19:52:56.659"/>
+<status status="PASS" starttime="20210828 00:20:38.149" endtime="20210828 00:21:20.861"/>
 </test>
-<status status="PASS" starttime="20210827 19:52:14.783" endtime="20210827 19:52:56.661"/>
+<status status="PASS" starttime="20210828 00:20:37.948" endtime="20210828 00:21:20.862"/>
 </suite>
 <statistics>
 <total>

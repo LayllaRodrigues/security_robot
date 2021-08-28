@@ -1,27 +1,27 @@
 *** Settings ***
 Library     SeleniumLibrary
 
-
 *** Variables  ***
 ${url}                   https://stage-cotacao.youse.io/seguro-auto-por-km     
-${CPF} =                        Convert To Number		                  12345675209
-${phone} =                      Convert To Number                         11933998877
-${Plate} =                                                                YOU0000
-${CEP} =                        Convert To Number                         04538133
-${AddressNumber} =                                                        90
+${CPF}                         Convert To Number		                  12345675209
+${phone}                        Convert To Number                         11933998877
+${Plate}                                                                  YOU0000
+${CEP}                          Convert To Number                         04538133
+${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cardname}                                                               John Hohn
 ${cvv}                                                                    737
 ${email}                                                                  km@youse.com.br
 
+
 *** Keywords ***
 Nova sessão
-    Open Browser                       ${url}           chrome
+    Open Browser                       ${url}           headlesschrome
 
 Encerra sessão
     Capture Page Screenshot
-    Close Browser
+    Close All Browsers
 
 Preenchendo nome do segurado        
     [Arguments]         ${cardname}
@@ -34,7 +34,6 @@ Preenchendo CPF do segurado
     Input Text                                  css:input[type='tel']                                                             ${CPF}
 
 Preenchendo E-mail do segurado             
-
     [Arguments]          ${email}
     Input Text                                  css:input[type='email']                                                           ${email}
 
@@ -45,43 +44,51 @@ Preenchendo Telefone do segurado
 
 
 Selecionando status civil 
-    Click Element                               id:insuredPersonMaritalStatus                        
-    Click Element                               class:MuiList-padding  
+    Click Element                             id:insuredPersonMaritalStatus                        
+    Click Element                             css:li[role="option"][data-value="single"]  
+
 
 Informando se o segurado é o motorista 
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1] 
 
 
 Informando placa
-    [Arguments]             ${Plate}
 
+    sleep       2s
+    [Arguments]             ${Plate}
+    
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
     Input Text                                  css:input[id=vehicleLicensePlate]                                                ${Plate}
     Click Element                               css:div[errorfor="vehicleLicensePlate"]                             
     Element Should Be Visible                   class:hZdnym
 
-Scroll                                
-
-    Scroll Element Into View                      css:div[id="vehicleOwnershipStatus"]
-
 
 Selecionando tipo de uso do carro
  
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
-    Click Element                               css:div[id="vehicleUsage"]  
-    Click Element                               css:li[tabindex="0"][data-value="only_private"]
+    Click Element                               css:div[id="vehicleUsage"] 
+    Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+    Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+    # Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+
+
+
+
 
 Selecionando tipo de dono do carro
+    sleep  2s
 
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
-    Wait Until Element Is Visible               css:li[data-value="owned_by_person"]
-    Click Element                               css:li[data-value="owned_by_person"]
+    Click Element                               css:li[data-value="owned_by_person"]    
+    Click Element                               css:li[data-value="owned_by_person"]      
 
 Informando CEP
 
+    Sleep   4
     [Arguments]                                 ${CEP}
     Click Element                               css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
@@ -97,6 +104,7 @@ Informando numero do endereço de pernoite
 Clicando botton continuar
     Wait Until Element Is Visible               css:button[class="sc-dIvrsQ fUTxYh"]
     Click Element                               css:button[class="sc-dIvrsQ fUTxYh"]
+    sleep   2
 
 Selecionando plano 
     Wait Until Element Is Visible               css:div[class="sc-jSFjdj jRglJP"]
