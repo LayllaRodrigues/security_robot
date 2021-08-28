@@ -13,6 +13,7 @@ ${date}                                                                   0330
 ${cardname}                                                               John Hohn
 ${cvv}                                                                    737
 ${email}                                                                  km@youse.com.br
+${vin}                                                                    9BWAB45Z6G0005471
 
 
 *** Keywords ***
@@ -72,12 +73,6 @@ Selecionando tipo de uso do carro
     Click Element                               css:div[id="vehicleUsage"] 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
-    # Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
-
-
-
-
-
 Selecionando tipo de dono do carro
     sleep  2s
 
@@ -155,8 +150,24 @@ Tela de sucesso
     Wait Until Page Contains                    Recebemos suas informações!     
     Page Should Contain                         Recebemos suas informações!
 
+Selecionando vin
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
+
+Informando Vin
+
+    sleep       2s
+    [Arguments]             ${vin}
+    
+    Wait Until Element Is Visible               css:input[id=vehicleVin][type="text"]                       
+    Click Element                               css:input[id=vehicleVin][type="text"]          
+    Input Text                                  css:input[id=vehicleVin][type="text"]       ${vin}   
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
 
 
+Selecionando versão vin
 
+    Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div[1]/div/div[1]/span
+ 
+Selecionando versão plate
 
-
+    Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span

@@ -4,8 +4,6 @@ Resource        base.robot
 Test Setup      Nova sessão
 Test Teardown   Encerra sessão
 
-
-
 *** Test Cases ***
 
 Preenchendo cotação
@@ -19,9 +17,17 @@ Preenchendo cotação
     Scroll Element Into View                    id:insuredPersonMaritalStatus
     Selecionando status civil 
     Informando se o segurado é o motorista  
-    Informando placa                             ${Plate}
-    sleep   4s
-    Selecionando versão plate
+
+    Selecionando vin
+
+    Informando vin                            ${vin}
+    sleep  3s
+
+    # Scroll Element Into View                    
+
+    Selecionando versão vin                                       
+
+
     Sleep  4s
     Scroll Element Into View                     css:div[id="vehicleOwnershipStatus"]
     Selecionando tipo de uso do carro           
