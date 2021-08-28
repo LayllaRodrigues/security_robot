@@ -2,6 +2,8 @@
 
 ## Comprando seguro auto com robot framework na Youse seguros 🚙
 
+Esse repositório tem como objetivo treinar automação de fluxos de compras, pagamentos etc com robot 
+
 ### Cotação com placa  ✅
 Preenchimento de form de cotação com placa, dados de lead, pagamento e emissão
 ### Cotacão com vin    ✅
