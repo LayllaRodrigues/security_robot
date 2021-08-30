@@ -2,7 +2,7 @@
 Library     SeleniumLibrary
 
 *** Variables  ***
-${url}                   https://stage-cotacao.youse.io/seguro-auto-por-km     
+${url}                   https://stage-cotacao.youse.io/seguro-auto-por-km    
 ${CPF}                         Convert To Number		                  12345675209
 ${phone}                        Convert To Number                         11933998877
 ${Plate}                                                                  YOU0000
@@ -18,7 +18,7 @@ ${vin}                                                                    9BWAB4
 
 *** Keywords ***
 Nova sessão
-    Open Browser                       ${url}           headlesschrome
+    Open Browser                       ${url}          chrome
 
 Encerra sessão
     Capture Page Screenshot
@@ -171,3 +171,20 @@ Selecionando versão vin
 Selecionando versão plate
 
     Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
+
+Selecionando botton não tenho placa
+
+    Click Element   css:button[tabindex="0"][type="button"]
+
+Selecionando marca do veiculo    
+
+    Click Element   css:div[role="button"][id="vehicleMake"]
+    Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="AUDI"]
+    Click Element   css:li[tabindex="-1"][data-value="AUDI"]
+
+    # Select From List By Value      xpath://*[@id="menu-"]/div[3]       AUDI
+    # Click Element   css:li[tabindex="0"][role="option"][data-value="AUDI"]
+
+
+
+
