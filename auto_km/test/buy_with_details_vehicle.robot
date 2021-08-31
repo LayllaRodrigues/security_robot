@@ -19,14 +19,29 @@ Preenchendo cotação
 
     Selecionando botton não tenho placa 
     Selecionando marca do veiculo
+    Selecionando modelo do veiculo
+    Sleep   4
+    Selecionando ano do veiculo
+    Selecionando versao do veiculo
 
-
-    Sleep  4s
-    Scroll Element Into View                     css:div[id="vehicleOwnershipStatus"]
     Selecionando tipo de uso do carro           
     Selecionando tipo de dono do carro
     Informando CEP                                ${CEP}
     Informando numero do endereço de pernoite     ${AddressNumber}
+    Clicando botton continuar 
+    Selecionando plano 
+
+
+    Selecionando botton informar chassi e placa     
+
+    Informando placa        ${Plate}
+
+    Sleep  4
+
+    Autorizando envio de ofertas
+
+    sleep   4
+
     Clicando botton continuar 
     Selecionando plano 
     Preenchendo cartão de crédito                  ${card}

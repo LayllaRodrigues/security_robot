@@ -182,8 +182,37 @@ Selecionando marca do veiculo
     Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="AUDI"]
     Click Element   css:li[tabindex="-1"][data-value="AUDI"]
 
-    # Select From List By Value      xpath://*[@id="menu-"]/div[3]       AUDI
-    # Click Element   css:li[tabindex="0"][role="option"][data-value="AUDI"]
+Selecionando modelo do veiculo
+    Click Element   xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[3]/div/div/div/div
+    Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="A4"]
+    Click Element   css:li[tabindex="-1"][data-value="A4"]
+
+
+Selecionando ano do veiculo
+    Click Element   css:div[role="button"][id="vehicleYear"]
+    Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="2019"]
+    Click Element       css:li[tabindex="-1"][data-value="2019"]
+
+Selecionando versao do veiculo
+    Scroll Element Into View                     css:div[id="vehicleOwnershipStatus"]
+    Click Element   css:div[id="vehicleVersion"]
+    Wait Until Element Is Visible   xpath://*[@id="menu-"]/div[3]/ul/li[1]
+    Click Element       xpath://*[@id="menu-"]/div[3]/ul/li[1]
+
+Validando texto na página ref a placa e chassi
+    Sleep   4
+
+Selecionando botton informar chassi e placa  
+    Sleep  4s
+    Click Element       css:[class="sc-jSFjdj dAoZsZ"
+
+
+Autorizando envio de ofertas
+    sleep  4s
+
+    Click Element      xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
+
+
 
 
 
