@@ -48,18 +48,15 @@ Selecionando status civil
     Click Element                             id:insuredPersonMaritalStatus                        
     Click Element                             css:li[role="option"][data-value="single"]  
 
-
 Informando se o segurado é o motorista 
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1] 
 
-
 Informando placa
 
     sleep       2s
     [Arguments]             ${Plate}
-    
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
     Input Text                                  css:input[id=vehicleLicensePlate]                                                ${Plate}
@@ -68,21 +65,19 @@ Informando placa
 
 
 Selecionando tipo de uso do carro
- 
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+
 Selecionando tipo de dono do carro
     sleep  2s
-
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:li[data-value="owned_by_person"]    
     Click Element                               css:li[data-value="owned_by_person"]      
 
 Informando CEP
-
     Sleep   4
     [Arguments]                                 ${CEP}
     Click Element                               css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]
@@ -91,7 +86,6 @@ Informando CEP
 
 Informando numero do endereço de pernoite
     [Arguments]                                 ${AddressNumber}
-
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
     Input Text                                  css:input[id="insuredPersonAddressNumber"]                                          ${AddressNumber}
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
@@ -107,7 +101,6 @@ Selecionando plano
 
 Preenchendo cartão de crédito
     [Arguments]                                ${card}
-
     Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]
@@ -117,7 +110,6 @@ Preenchendo cartão de crédito
 
 Preenchendo data de validade do cartão
     [Arguments]                                 ${date}
-
     Select Frame                                css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]                     ${date}
@@ -126,7 +118,6 @@ Preenchendo data de validade do cartão
 
 Preenchendo cvv 
     [Arguments]                                  ${cvv}
-    
     Select Frame                                css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]                    ${cvv}
@@ -134,12 +125,10 @@ Preenchendo cvv
 
 Preenchendo nome do dono do cartão
     [Arguments]         ${cardname}
-
     Input Text                                  css:input[placeholder="Nome como no cartão"]                                             ${cardname}
 
 Confirmando email
     [Arguments]         ${email}
-
     Input Text                                  css:input[id="insuredPersonEmailConfirm"]                                                ${email}
 
 Realizando o pagamento e encerrando a compra 
@@ -154,10 +143,8 @@ Selecionando vin
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
 
 Informando Vin
-
     sleep       2s
-    [Arguments]             ${vin}
-    
+    [Arguments]             ${vin}   
     Wait Until Element Is Visible               css:input[id=vehicleVin][type="text"]                       
     Click Element                               css:input[id=vehicleVin][type="text"]          
     Input Text                                  css:input[id=vehicleVin][type="text"]       ${vin}   
@@ -165,19 +152,17 @@ Informando Vin
 
 
 Selecionando versão vin
-
+    Sleep  4s
     Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div[1]/div/div[1]/span
  
 Selecionando versão plate
-
+    Sleep  4s
     Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
 
 Selecionando botton não tenho placa
-
     Click Element   css:button[tabindex="0"][type="button"]
 
 Selecionando marca do veiculo    
-
     Click Element   css:div[role="button"][id="vehicleMake"]
     Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="AUDI"]
     Click Element   css:li[tabindex="-1"][data-value="AUDI"]
@@ -186,7 +171,6 @@ Selecionando modelo do veiculo
     Click Element   xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[3]/div/div/div/div
     Wait Until Element Is Visible   css:li[tabindex="-1"][data-value="A4"]
     Click Element   css:li[tabindex="-1"][data-value="A4"]
-
 
 Selecionando ano do veiculo
     Click Element   css:div[role="button"][id="vehicleYear"]
@@ -198,8 +182,6 @@ Selecionando versao do veiculo
     Click Element   css:div[id="vehicleVersion"]
     Wait Until Element Is Visible   xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element       xpath://*[@id="menu-"]/div[3]/ul/li[1]
-
-Validando texto na página ref a placa e chassi
     Sleep   4
 
 Selecionando botton informar chassi e placa  
@@ -209,7 +191,6 @@ Selecionando botton informar chassi e placa
 
 Autorizando envio de ofertas
     sleep  4s
-
     Click Element      xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
 
 
