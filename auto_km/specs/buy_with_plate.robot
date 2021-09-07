@@ -10,10 +10,10 @@ Library         FakerLibrary    locale=pt_BR
 
 Preenchendo cotação
     Set Selenium Timeout                        30s
-    Preenchendo nome do segurado                ${insuredPerson}
+    Preenchendo nome do segurado                ${TEST_NAME}
     Preenchendo CPF do segurado                 ${CPF}
     Preenchendo E-mail do segurado              ${email}
-    Preenchendo Telefone do segurado            ${phone}
+    Preenchendo Telefone do segurado            ${None}
     Scroll Element Into View                    id:insuredPersonMaritalStatus
     Selecionando status civil 
     Informando se o segurado é o motorista  
@@ -29,7 +29,7 @@ Preenchendo cotação
     Preenchendo cartão de crédito                  ${card}
     Preenchendo data de validade do cartão         ${date}
     Preenchendo cvv                                ${cvv}
-    Preenchendo nome do dono do cartão             ${insuredPerson}
+    Preenchendo nome do dono do cartão             ${TEST_NAME}
     Confirmando email                              ${email}
     Realizando o pagamento e encerrando a compra 
     Tela de sucesso 
