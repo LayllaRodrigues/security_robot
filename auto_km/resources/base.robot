@@ -1,22 +1,31 @@
 *** Settings ***
 Library     SeleniumLibrary
+Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
 ${url}                   https://stage-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
-${phone}                        Convert To Number                         11933998877
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
 ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
-${cardname}                                                               John Hohn
 ${cvv}                                                                    737
-${email}                                                                  km@youse.com.br
-${vin}                                                                    9BHBG41DAFP531546
-
+${email}                                                                  km1@youse.com.br
+${vin}                                                                    9BWAG5BZXKP594914
 
 *** Keywords ***
+
+Mocks
+  ${name}                                  FakerLibrary.Name
+  ${TELEFONEFAKE}                          FakerLibrary.Phone Number
+
+  @{dados}    Create List                  E-mail Aleatório: ${email}   
+  ...                                      Nome Aleatório: ${name}          
+  ...                                      Telefone Aleatório: ${TELEFONEFAKE}    
+  Log Many    @{dados}
+
+
 Nova sessão
     Open Browser                       ${url}/seguro-auto-por-km           chrome
 
@@ -24,10 +33,13 @@ Encerra sessão
     Capture Page Screenshot
     Close All Browsers
 
-Preenchendo nome do segurado        
-    [Arguments]         ${cardname}
+Preenchendo nome do segurado 
+    [Arguments]          ${name}
+    ${name}                     FakerLibrary.Name
+
     Wait Until Element Is Visible               css:input[id="insuredPersonName"] 
-    Input Text                                  css:input[id="insuredPersonName"]                                                 ${cardname}
+    Input Text                                  css:input[id="insuredPersonName"]           ${name}
+           
 
 Preenchendo CPF do segurado
     [Arguments]          ${CPF}
@@ -36,12 +48,14 @@ Preenchendo CPF do segurado
 
 Preenchendo E-mail do segurado             
     [Arguments]          ${email}
-    Input Text                                  css:input[type='email']                                                           ${email}
+    Input Text                  css:input[type='email']        ${email}
 
 
 Preenchendo Telefone do segurado
-    [Arguments]          ${phone}
-    Input Text                                  css:input[type='phone']                                                           ${phone}
+    [Arguments]                                 ${TELEFONEFAKE}
+    ${TELEFONEFAKE}                             FakerLibrary.Phone Number
+
+    Input Text                                  css:input[type='phone']                                                           ${TELEFONEFAKE}
 
 
 Selecionando status civil 
@@ -55,7 +69,6 @@ Informando se o segurado é o motorista
 
 Informando placa
 
-    sleep       2s
     [Arguments]             ${Plate}
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
@@ -71,15 +84,17 @@ Selecionando tipo de uso do carro
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
 
 Selecionando tipo de dono do carro
-    sleep  2s
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:li[data-value="owned_by_person"]    
     Click Element                               css:li[data-value="owned_by_person"]      
 
 Informando CEP
-    Sleep   4
-    [Arguments]                                 ${CEP}
+    Sleep   1
+    [Arguments]                                 ${CEP}  
+
+                      
+    Wait Until Element Is Visible               css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]
     Click Element                               css:div[spacing="[object Object]"][class="sc-jSFjdj byghvu"]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
 
@@ -93,11 +108,10 @@ Informando numero do endereço de pernoite
 Clicando botton continuar
     Wait Until Element Is Visible               css:button[class="sc-dIvrsQ fUTxYh"]
     Click Element                               css:button[class="sc-dIvrsQ fUTxYh"]
-    sleep   2
 
 Selecionando plano 
-    Wait Until Element Is Visible               css:div[class="sc-jSFjdj jRglJP"]
-    Click Element                               css:div[class="sc-jSFjdj jRglJP"]
+    Wait Until Element Is Visible               css:button[class="sc-dIvrsQ jLaeqK"]
+    Click Element                               css:button[class="sc-dIvrsQ jLaeqK"]
 
 Preenchendo cartão de crédito
     [Arguments]                                ${card}
@@ -107,14 +121,12 @@ Preenchendo cartão de crédito
     Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]                     ${card}
     Unselect Frame       
 
-
 Preenchendo data de validade do cartão
     [Arguments]                                 ${date}
     Select Frame                                css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]                     ${date}
     Unselect Frame            
-
 
 Preenchendo cvv 
     [Arguments]                                  ${cvv}
@@ -125,14 +137,16 @@ Preenchendo cvv
 
 Preenchendo nome do dono do cartão
     [Arguments]         ${cardname}
-    Input Text                                  css:input[placeholder="Nome como no cartão"]                                             ${cardname}
+    Input Text                                  css:input[placeholder="Nome como no cartão"]                                             ${TEST_NAME}
 
 Confirmando email
     [Arguments]         ${email}
+
     Input Text                                  css:input[id="insuredPersonEmailConfirm"]                                                ${email}
 
 Realizando o pagamento e encerrando a compra 
 
+    Wait Until Element Is Visible               css:button[class="sc-dIvrsQ fUTxYh"]
     Click Element                               css:button[class="sc-dIvrsQ fUTxYh"]
 
 Tela de sucesso 
@@ -140,27 +154,27 @@ Tela de sucesso
     Page Should Contain                         Recebemos suas informações!
 
 Selecionando vin
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
 
 Informando Vin
-    sleep       2s
     [Arguments]             ${vin}   
     Wait Until Element Is Visible               css:input[id=vehicleVin][type="text"]                       
     Click Element                               css:input[id=vehicleVin][type="text"]          
     Input Text                                  css:input[id=vehicleVin][type="text"]       ${vin}   
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[2]/div/div[2]/div/label[2]/span[1]
 
-
 Selecionando versão vin
-    Sleep  4s
-    Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div[1]/div/div[1]/span
+    Wait Until Element Is Visible           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div[1]/div/div[1]/span
+    Click Element                           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div[1]/div/div[1]/span
  
 Selecionando versão plate
-    Sleep  4s
-    Click Element           xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
+    Wait Until Element Is Visible       xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
+    Click Element                       xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
 
 Selecionando botton não tenho placa
-    Click Element   css:button[tabindex="0"][type="button"]
+    Wait Until Element Is Visible       css:button[tabindex="0"][type="button"]
+    Click Element                       css:button[tabindex="0"][type="button"]
 
 Selecionando marca do veiculo    
     Click Element   css:div[role="button"][id="vehicleMake"]
@@ -182,16 +196,15 @@ Selecionando versao do veiculo
     Click Element   css:div[id="vehicleVersion"]
     Wait Until Element Is Visible   xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element       xpath://*[@id="menu-"]/div[3]/ul/li[1]
-    Sleep   4
 
 Selecionando botton informar chassi e placa  
-    Sleep  4s
-    Click Element       css:[class="sc-jSFjdj dAoZsZ"
+    Wait Until Element Is Visible       css:[class="sc-jSFjdj dAoZsZ"
+    Click Element                       css:[class="sc-jSFjdj dAoZsZ"
 
 
 Autorizando envio de ofertas
-    sleep  4s
-    Click Element      xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
+    Wait Until Element Is Visible       xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
+    Click Element                       xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
 
 
 

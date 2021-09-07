@@ -2,13 +2,15 @@
 Resource    ${EXECDIR}/resources/Base.robot
 Test Setup      Nova sessão
 Test Teardown   Encerra sessão
+Library         FakerLibrary    locale=pt_BR
+
 
 
 *** Test Cases ***
 
 Preenchendo cotação
     Set Selenium Timeout                        30s
-    Preenchendo nome do segurado                ${cardname}
+    Preenchendo nome do segurado                ${insuredPerson}
     Preenchendo CPF do segurado                 ${CPF}
     Preenchendo E-mail do segurado              ${email}
     Preenchendo Telefone do segurado            ${phone}
@@ -27,7 +29,7 @@ Preenchendo cotação
     Preenchendo cartão de crédito                  ${card}
     Preenchendo data de validade do cartão         ${date}
     Preenchendo cvv                                ${cvv}
-    Preenchendo nome do dono do cartão             ${cardname}
+    Preenchendo nome do dono do cartão             ${insuredPerson}
     Confirmando email                              ${email}
     Realizando o pagamento e encerrando a compra 
     Tela de sucesso 
