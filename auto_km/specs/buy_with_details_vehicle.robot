@@ -8,34 +8,20 @@ Library         FakerLibrary    locale=pt_BR
 *** Test Cases ***
 
 Preenchendo cotação
-    Set Selenium Timeout                        30s
-    Preenchendo nome do segurado                ${TEST_NAME}
-    Preenchendo CPF do segurado                 ${CPF}
-    Preenchendo E-mail do segurado              ${email}
-    Preenchendo Telefone do segurado            ${None}
-    Scroll Element Into View                    id:insuredPersonMaritalStatus
-    Selecionando status civil 
-    Informando se o segurado é o motorista      
-    Selecionando botton não tenho placa 
-    Selecionando marca do veiculo
-    Selecionando modelo do veiculo
-    Selecionando ano do veiculo
-    Selecionando versao do veiculo
-    Selecionando tipo de uso do carro           
-    Selecionando tipo de dono do carro
-    Informando CEP                                ${CEP}
-    Informando numero do endereço de pernoite     ${AddressNumber}
-    Clicando botton continuar 
-    Selecionando plano 
-    Selecionando botton informar chassi e placa     
-    Informando placa        ${Plate}
-    Autorizando envio de ofertas
-    Clicando botton continuar 
-    Selecionando plano 
-    Preenchendo cartão de crédito                  ${card}
-    Preenchendo data de validade do cartão         ${date}
-    Preenchendo cvv                                ${cvv}
-    Preenchendo nome do dono do cartão             ${TEST_NAME}
-    Confirmando email                              ${email}
-    Realizando o pagamento e encerrando a compra 
-    Tela de sucesso 
+
+    Set Selenium Timeout                        50s
+
+    Validando que estou na tela inicial
+    Dado Que Preenchi Os Dados Do Segurado E Motorista       ${TEST_NAME}    ${CPF}      ${email}    ${None}
+    E informei dados do carro
+    E selecionei o tipo de dono e uso do carro                  
+    E informei os dados de pernoite                          ${CEP}        ${AddressNumber}
+    E selecionei o plano
+    Quando eu preencher os dados do cartão de crédito        ${card}       ${date}      ${cvv}      ${TEST_NAME} 
+    E confirmar o email                                      ${email}
+    E encerrar a compra
+    Então devo visualizar a tela de sucesso 
+
+
+
+   
