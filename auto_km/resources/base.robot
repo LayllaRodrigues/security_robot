@@ -77,6 +77,9 @@ E selecionei o tipo de dono e uso do carro
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
 
+    # Wait Until Element Is Visible               css:li[data-value="only_private"]
+    # Click Element                               css:li[data-value="only_private"]
+
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
 
@@ -90,9 +93,14 @@ E informei os dados de pernoite
 
     Sleep   1
     [Arguments]                                 ${CEP}      ${AddressNumber}
+
+    sleep   5s
+
     Wait Until Element Is Visible               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
     Click Element                               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
+
+    
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
     Input Text                                  css:input[id="insuredPersonAddressNumber"]                                          ${AddressNumber}
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
@@ -206,3 +214,28 @@ E informei os dados da minha classe de bonus
 E visualizei o retorno da consulta farway
     Wait Until Element Is Visible       css:div[class="sc-dlnjwi hDgBAQ"]
     Click Element                       css:div[class="sc-dlnjwi hDgBAQ"]
+
+DADO que preenchi os dados do segurado e segundo motorista 
+    [Arguments]          ${name}    ${CPF}      ${email}    ${TELEFONEFAKE}     
+    
+    ${name}                     FakerLibrary.Name
+    ${TELEFONEFAKE}             FakerLibrary.Phone Number
+    
+
+
+    Wait Until Element Is Visible               css:input[id="insuredPersonName"] 
+    Input Text                                  css:input[id="insuredPersonName"]           ${name}
+    Click Element                               css:input[type='tel']       
+    Input Text                                  css:input[type='tel']                        ${CPF}
+    Input Text                                  css:input[type='email']                      ${email}
+    Input Text                                  css:input[type='phone']                      ${TELEFONEFAKE}
+    Click Element                               id:insuredPersonMaritalStatus                        
+    Click Element                               css:li[role="option"][data-value="single"]  
+    
+    Input Text                                   css:input[id="driverName"][class="jss5"]         ${name}  
+
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[3]/div/div[2]      
+    Input Text                                  xpath://*[@id="root"]/div[2]/div/div[9]/div[3]/div/div[2]/div/input                             ${CPF}
+
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[4]/div/div/div/div
+    Click Element                               css:li[role="option"][data-value="single"]  
