@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                   https://qa-cotacao.youse.io  
+${url}                         https://qa-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
@@ -17,7 +17,6 @@ ${name}                                                                   John Y
 
 
 *** Keywords ***
-
 Nova sessão
     Open Browser                       ${url}/seguro-auto-por-km           chrome
 
@@ -31,7 +30,7 @@ Validando que estou na tela inicial
     Location Should Contain                         seguro-auto-por-km
 
 
-Dado que preenchi os dados do segurado e motorista 
+DADO que preenchi os dados do segurado e motorista 
     [Arguments]          ${name}    ${CPF}      ${email}    ${TELEFONEFAKE}     
     
     ${name}                     FakerLibrary.Name
@@ -52,14 +51,13 @@ Dado que preenchi os dados do segurado e motorista
 
 E informei placa e versao do carro
     [Arguments]                                 ${Plate}
+   
+   
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
     Input Text                                  css:input[id=vehicleLicensePlate]                                                ${Plate}
     Click Element                               css:div[errorfor="vehicleLicensePlate"]                             
     # Wait Until Element Is Visible               class:hZdnym
-    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
-    Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[5]/div/div/div/div[1]/span
-
 
 E informei vin e versao do carro
     [Arguments]             ${vin}   
@@ -98,11 +96,13 @@ E informei os dados de pernoite
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 
 E selecionei o plano
+
+    sleep       5s
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ jirKkk"]
     Click Element                               css:button[class="sc-fnVZcZ jirKkk"]
 
 
-Quando eu preencher os dados do cartão de crédito 
+QUANDO eu preencher os dados do cartão de crédito 
     [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
       
@@ -132,12 +132,13 @@ E encerrar a compra
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 
-Então devo visualizar a tela de sucesso 
+ENTÃO devo visualizar a tela de sucesso 
     sleep       10s
     ${tela_sucesso}                                 Get Locations
     Location Should Contain                         sucesso
 
 E informei dados do carro
+
 
     Wait Until Element Is Visible       css:button[tabindex="0"][type="button"]
     Click Element                       css:button[tabindex="0"][type="button"]
@@ -158,10 +159,26 @@ E informei dados do carro
 
 
     Scroll Element Into View                     css:div[id="vehicleOwnershipStatus"]
-    Click Element   css:div[id="vehicleVersion"]
-    Wait Until Element Is Visible   xpath://*[@id="menu-"]/div[3]/ul/li[1]
-    Click Element       xpath://*[@id="menu-"]/div[3]/ul/li[1]
+    Click Element                                css:div[id="vehicleVersion"]
+    Wait Until Element Is Visible                xpath://*[@id="menu-"]/div[3]/ul/li[2]
+    Click Element                                xpath://*[@id="menu-"]/div[3]/ul/li[2]
     
+E visualizei o frame solicitando a placa
+    Wait Until Element Is Visible       css:div[class="sc-dlnjwi hDgBAQ"]
+    Click Element                       css:div[class="sc-dlnjwi hDgBAQ"]
 
+E fui até o campo placa
+    Wait Until Element Is Visible       css:label[class="sc-bdnxRM eVZHVS"][for="vehicleLicensePlate"]
+    Scroll Element Into View            css:label[class="sc-bdnxRM eVZHVS"][for="vehicleLicensePlate"]
 
+    
+E realizei aceite LGPD
 
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
+
+E ok
+
+    Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
+    Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
+    
