@@ -7,7 +7,7 @@ ${url}                         https://qa-cotacao.youse.io
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
-${AddressNumber}                                                          90
+${AddressNumber}                                                          900
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
@@ -87,23 +87,29 @@ E selecionei o tipo de dono e uso do carro
     Click Element                               css:div[id="vehicleOwnershipStatus"]
 
     Click Element                               css:li[data-value="owned_by_person"]    
-    Click Element                               css:li[data-value="owned_by_person"]      
+    Click Element                               css:li[data-value="owned_by_person"]   
+
+E informei que meu carro é 0km 
+    Click Element       xpath://*[@id="root"]/div[2]/div/div[9]/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
 
 E informei os dados de pernoite
 
     Sleep   1
     [Arguments]                                 ${CEP}      ${AddressNumber}
 
-    sleep   5s
+    sleep   3s
 
     Wait Until Element Is Visible               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
     Click Element                               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
 
+    sleep   3s
     
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
     Input Text                                  css:input[id="insuredPersonAddressNumber"]                                          ${AddressNumber}
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
+
+    sleep   3s
 
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
