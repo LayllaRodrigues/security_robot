@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://stage-cotacao.youse.io  
+${url}                         https://qa-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
@@ -14,7 +14,7 @@ ${cvv}                                                                    737
 ${email}                                                                  km1@youse.com.br
 ${vin}                                                                    3N1BC1CD1DK193023
 ${name}                                                                   John Youser
-
+${CI_Number}                                                              5631910303657-4
 
 *** Keywords ***
 Nova sessão
@@ -72,12 +72,17 @@ E informei vin e versao do carro
 
 E selecionei o tipo de dono e uso do carro 
 
+    sleep   2s
+
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
+
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
+
     Click Element                               css:li[data-value="owned_by_person"]    
     Click Element                               css:li[data-value="owned_by_person"]      
 
@@ -105,7 +110,7 @@ E selecionei o plano
 QUANDO eu preencher os dados do cartão de crédito 
     [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
-      
+
     Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]
@@ -178,7 +183,26 @@ E realizei aceite LGPD
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
 
 E ok
-
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
     
+E informei os dados da minha classe de bonus   
+
+    Scroll Element Into View            xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[2]/div/div[2]
+
+    Wait Until Element Is Visible       xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[2]/div/div[2]/div/label[1]/span[1]
+    Click Element                       xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[2]/div/div[2]/div/label[1]/span[1]
+
+    Scroll Element Into View            xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[3]/div/div[2]
+
+    Wait Until Element Is Visible       xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[3]/div/div[2]/div/label[1]/span[1]
+    Click Element                       xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[3]/div/div[2]/div/label[1]/span[1]
+
+    Click Element                       css:div[tabindex="0"][id="driverUserBonusesClass"]
+    Click Element                       css:li[data-value="4"]
+
+    Input Text                          xpath://*[@id="root"]/div[2]/div/div[12]/div[2]/div[5]/div/div[4]/div/div[2]/div/input              ${CI_Number}
+
+E visualizei o retorno da consulta farway
+    Wait Until Element Is Visible       css:div[class="sc-dlnjwi hDgBAQ"]
+    Click Element                       css:div[class="sc-dlnjwi hDgBAQ"]
