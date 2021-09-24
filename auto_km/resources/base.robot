@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://qa-cotacao.youse.io  
+${url}                         https://stage-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
@@ -133,7 +133,7 @@ E encerrar a compra
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 
 ENTÃO devo visualizar a tela de sucesso 
-    sleep       10s
+    sleep       20s
     ${tela_sucesso}                                 Get Locations
     Location Should Contain                         sucesso
 
