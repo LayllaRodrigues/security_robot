@@ -7,8 +7,6 @@ Library         FakerLibrary    locale=pt_BR
 *** Test Cases ***
 Preenchendo cotação
 
-    Set Selenium Timeout                        50s
-
     Validando que estou na tela inicial
     Dado Que Preenchi Os Dados Do Segurado E Motorista       ${TEST_NAME}    ${CPF}      ${email}    ${None}
     E informei placa e versao do carro                       ${Plate} 

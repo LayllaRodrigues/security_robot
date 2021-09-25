@@ -3,21 +3,22 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://qa-cotacao.youse.io  
+${url}                         https://stage-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
-${AddressNumber}                                                          900
+${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
 ${email}                                                                  km1@youse.com.br
-${vin}                                                                    3N1BC1CD1DK193023
+${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
 
 *** Keywords ***
 Nova sessão
+    Set Selenium Timeout                        50s
     Open Browser                       ${url}/seguro-auto-por-km           chrome
 
 Encerra sessão
@@ -72,22 +73,27 @@ E informei vin e versao do carro
 
 E selecionei o tipo de dono e uso do carro 
 
-    sleep   2s
+    sleep   1s
 
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
+
+    sleep  1s
 
     # Wait Until Element Is Visible               css:li[data-value="only_private"]
     # Click Element                               css:li[data-value="only_private"]
 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+    
+    sleep  1s
 
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
 
+    sleep  1s
+
     Click Element                               css:li[data-value="owned_by_person"]    
-    Click Element                               css:li[data-value="owned_by_person"]   
 
 E informei que meu carro é 0km 
     Click Element       xpath://*[@id="root"]/div[2]/div/div[9]/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
@@ -245,3 +251,25 @@ DADO que preenchi os dados do segurado e segundo motorista
 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[4]/div/div/div/div
     Click Element                               css:li[role="option"][data-value="single"]  
+
+E informei endereço
+    [Arguments]                                 ${CEP}      ${AddressNumber}
+    sleep   1s
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
+    Input Text                                  xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]/div/input                ${CEP}
+                                            
+    Input Text                                  xpath://*[@id="insuredPersonAddressNumber"]                                         ${AddressNumber}
+
+    ${bairro}                                   Get Text        xpath://*[@id="insuredPersonAddressNeighborhood"] 
+    Wait Until Element Contains                 xpath://*[@id="insuredPersonAddressNeighborhood"]       ${bairro}
+
+
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]/span[1]
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]/span[1]
+    
+    sleep   3s
+
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[17]/div/div[2]/span/div/button
+
+
