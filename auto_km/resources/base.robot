@@ -177,13 +177,13 @@ E informei dados do carro
     Wait Until Element Is Visible       css:li[tabindex="-1"][data-value="A4"]
     Click Element                       css:li[tabindex="-1"][data-value="A4"]
  
+    Wait Until Element Is Visible       css:div[role="button"][id="vehicleYear"]
 
     Click Element                       css:div[role="button"][id="vehicleYear"]
-    Wait Until Element Is Visible       css:li[tabindex="-1"][data-value="2019"]
-    Click Element                       css:li[tabindex="-1"][data-value="2019"]
+    Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[3]
 
+    sleep   1s
 
-    Scroll Element Into View                     css:div[id="vehicleOwnershipStatus"]
     Click Element                                css:div[id="vehicleVersion"]
     Wait Until Element Is Visible                xpath://*[@id="menu-"]/div[3]/ul/li[2]
     Click Element                                xpath://*[@id="menu-"]/div[3]/ul/li[2]
