@@ -15,10 +15,11 @@ ${email}                                                                  km1@yo
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
-
+${vin_brand_new}                                                          9BHCR51BBMP136639
+${result} 
 *** Keywords ***
 Nova sessão
-    Set Selenium Timeout                        50s
+    Set Selenium Timeout                        90s
     Open Browser                       ${url}/seguro-auto-por-km           chrome
 
 Encerra sessão
@@ -79,9 +80,6 @@ E selecionei o tipo de dono e uso do carro
     Click Element                               css:div[id="vehicleUsage"] 
 
     sleep  1s
-
-    # Wait Until Element Is Visible               css:li[data-value="only_private"]
-    # Click Element                               css:li[data-value="only_private"]
 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
@@ -156,9 +154,12 @@ E confirmar o email
 E encerrar a compra
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
+Aguardando sucesso da keyword Então
+    ${result}           Wait Until Keyword Succeeds     2x	        25s	    ENTÃO devo visualizar a tela de sucesso 
+
 
 ENTÃO devo visualizar a tela de sucesso 
-    sleep       20s
+
     ${tela_sucesso}                                 Get Locations
     Location Should Contain                         sucesso
 
@@ -178,9 +179,10 @@ E informei dados do carro
     Click Element                       css:li[tabindex="-1"][data-value="A4"]
  
     Wait Until Element Is Visible       css:div[role="button"][id="vehicleYear"]
-
     Click Element                       css:div[role="button"][id="vehicleYear"]
-    Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[3]
+
+    Wait Until Element Is Visible       xpath://*[@id="menu-"]/div[3]/ul/li[2]
+    Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[2]
 
     sleep   1s
 
