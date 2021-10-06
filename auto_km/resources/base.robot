@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://stage-cotacao.youse.io  
+${url}                         https://qa-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0000
 ${CEP}                          Convert To Number                         04538133
@@ -11,19 +11,19 @@ ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  km1@youse.com.br
+${email}                                                                  cotacao2022km@youse.com.br
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
-${vin_brand_new}                                                          9BHCR51BBMP136639
+${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
 *** Keywords ***
 Nova sessão
-    Set Selenium Timeout                        90s
-    Open Browser                       ${url}/seguro-auto-por-km           chrome
+    Set Selenium Timeout                        30s
+    Open Browser                       ${url}/seguro-auto-por-km           headlesschrome
 
 Encerra sessão
-    Capture Page Screenshot
+    # Capture Page Screenshot
     Close All Browsers
 
 Validando que estou na tela inicial
@@ -45,6 +45,7 @@ DADO que preenchi os dados do segurado e motorista
     Input Text                                  css:input[type='tel']                        ${CPF}
     Input Text                                  css:input[type='email']                      ${email}
     Input Text                                  css:input[type='phone']                      ${TELEFONEFAKE}
+    sleep   1
     Click Element                               id:insuredPersonMaritalStatus                        
     Click Element                               css:li[role="option"][data-value="single"]  
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
@@ -54,6 +55,7 @@ DADO que preenchi os dados do segurado e motorista
 E informei placa e versao do carro
     [Arguments]                                 ${Plate}
    
+   sleep    2
    
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
@@ -97,23 +99,23 @@ E informei que meu carro é 0km
     Click Element       xpath://*[@id="root"]/div[2]/div/div[9]/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
 
 E informei os dados de pernoite
-
-    Sleep   1
     [Arguments]                                 ${CEP}      ${AddressNumber}
 
-    sleep   3s
+    sleep   2s
 
-    Wait Until Element Is Visible               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
-    Click Element                               css:div[spacing="[object Object]"][class="sc-dlnjwi kVWFtv"]
+
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
 
-    sleep   3s
+    # sleep   3s
     
+    Wait Until Element Is Visible               css:input[id="insuredPersonAddressNeighborhood"]
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
     Input Text                                  css:input[id="insuredPersonAddressNumber"]                                          ${AddressNumber}
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
 
-    sleep   3s
+    sleep   1s
 
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
@@ -155,7 +157,7 @@ E encerrar a compra
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 Aguardando sucesso da keyword Então
-    ${result}           Wait Until Keyword Succeeds     2x	        25s	    ENTÃO devo visualizar a tela de sucesso 
+    ${result}           Wait Until Keyword Succeeds     2x	        30s	    ENTÃO devo visualizar a tela de sucesso 
 
 
 ENTÃO devo visualizar a tela de sucesso 
@@ -205,6 +207,8 @@ E realizei aceite LGPD
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]
 
 E ok
+
+    sleep   2
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
     
@@ -256,7 +260,7 @@ DADO que preenchi os dados do segurado e segundo motorista
 
 E informei endereço
     [Arguments]                                 ${CEP}      ${AddressNumber}
-    sleep   1s
+    sleep   2s
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]/div/input                ${CEP}

@@ -24,6 +24,7 @@ Preenchendo cotação
     QUANDO eu preencher os dados do cartão de crédito        ${card}       ${date}      ${cvv}      ${TEST_NAME} 
     E confirmar o email                                      ${email}
     E encerrar a compra
+    Aguardando sucesso da keyword Então 
     ENTÃO devo visualizar a tela de sucesso 
 
 

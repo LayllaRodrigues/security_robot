@@ -18,4 +18,5 @@ Preenchendo cotação
     E confirmar o email                                      ${email}
     E encerrar a compra
     Aguardando sucesso da keyword Então 
-    Então devo visualizar a tela de sucesso 
+    Então devo visualizar a tela de sucesso
+ 
