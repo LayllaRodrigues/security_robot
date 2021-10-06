@@ -7,7 +7,7 @@ Library     FakerLibrary        locale=pt_BR
 ${url}              https://qa-manager.youse.io
 ${email}            laylla.rodrigues@youse.com.br
 ${password}         Jesus777*
-${vin_brand_new}    9BHBG41CAFP347795
+${vin_brand_new}    9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
 
 
@@ -39,7 +39,7 @@ E informei chassi que desejo encontrar
 
     Wait Until Element Is Visible     xpath://*[@id="container"]/section[14]
     Scroll Element Into View          xpath://*[@id="container"]/section[14]
-    Click Element                     css:a[class="button button--secondary"][href="/admin/auto/apolices/3003110000473/cancelamento/new"]
+    Click Element                     xpath://*[@id="container"]/section[14]/div/p/a
 
     Wait Until Element Is Visible     css:select[id="insurance_policy_cancellation_requester"]
     Double Click Element              css:select[id="insurance_policy_cancellation_requester"]
@@ -61,6 +61,19 @@ E informei chassi que desejo encontrar
     Click Element                     css:input[name="commit"][value="Continuar"]
 
     Click Element                     css:input[name="commit"][value="Confirmar Cancelamento"]
+
+    Wait Until Element Is Visible     xpath://*[@id="container"]/section[3]/div/p[3]/a     
+    Click Element                     xpath://*[@id="container"]/section[3]/div/p[3]/a
+
+    Wait Until Element Is Visible     css:input[name="commit"][value="Confirmar Cancelamento"]
+    Click Element                     css:input[name="commit"][value="Confirmar Cancelamento"]
+
+
+    Page Should Contain                       Beleza! Foi concluída a solicitação de cancelamento da apólice.
+
+
+
+    sleep   29
 
 
 
