@@ -20,7 +20,7 @@ ${result}
 *** Keywords ***
 Nova sessão
     Set Selenium Timeout                        30s
-    Open Browser                       ${url}/seguro-auto-por-km           headlesschrome
+    Open Browser                       ${url}/seguro-auto-por-km           chrome
 
 Encerra sessão
     # Capture Page Screenshot
@@ -249,8 +249,14 @@ DADO que preenchi os dados do segurado e segundo motorista
     Input Text                                  css:input[type='phone']                      ${TELEFONEFAKE}
     Click Element                               id:insuredPersonMaritalStatus                        
     Click Element                               css:li[role="option"][data-value="single"]  
+
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1] 
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
+
+
     
-    Input Text                                   css:input[id="driverName"][class="jss5"]         ${name}  
+    Input Text                                  css:input[id="driverName"][class="jss5"]         ${name}  
 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[9]/div[3]/div/div[2]      
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[9]/div[3]/div/div[2]/div/input                             ${CPF}
