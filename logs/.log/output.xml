@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on darwin)" generated="20210924 13:29:23.252" rpa="false" schemaversion="2">
+<suite id="s1" name="Buy With Bonus Class" source="/Users/laylla.rodrigues/security_robot/auto_km/specs/buy_with_bonus_class.robot">
+<test id="s1-t1" name="Preenchendo cotação">
+<kw name="Nova sessão" type="SETUP">
+<msg timestamp="20210924 13:29:24.071" level="FAIL">No keyword with name 'Nova sessão' found.</msg>
+<status status="FAIL" starttime="20210924 13:29:24.070" endtime="20210924 13:29:24.071"/>
+</kw>
+<kw name="Encerra sessão" type="TEARDOWN">
+<msg timestamp="20210924 13:29:24.078" level="FAIL">No keyword with name 'Encerra sessão' found.</msg>
+<status status="FAIL" starttime="20210924 13:29:24.078" endtime="20210924 13:29:24.078">No keyword with name 'Encerra sessão' found.</status>
+</kw>
+<status status="FAIL" starttime="20210924 13:29:24.065" endtime="20210924 13:29:24.079">Setup failed:
+No keyword with name 'Nova sessão' found.
+
+Also teardown failed:
+No keyword with name 'Encerra sessão' found.</status>
+</test>
+<status status="FAIL" starttime="20210924 13:29:23.255" endtime="20210924 13:29:24.079"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Buy With Bonus Class">Buy With Bonus Class</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210924 13:29:23.300" level="ERROR">Error in file '/Users/laylla.rodrigues/security_robot/auto_km/specs/buy_with_bonus_class.robot' on line 2: Resource file '/Users/laylla.rodrigues/security_robot/auto_km/specs/resources/Base.robot' does not exist.</msg>
+</errors>
+</robot>
