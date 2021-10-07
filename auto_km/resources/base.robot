@@ -3,15 +3,15 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://qa-cotacao.youse.io  
+${url}                         https://stage-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
-${Plate}                                                                  YOU0000
+${Plate}                                                                  YOU0003
 ${CEP}                          Convert To Number                         04538133
 ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  cotacao2022km@youse.com.br
+${email}                                                                  km3@youse.com.br
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
