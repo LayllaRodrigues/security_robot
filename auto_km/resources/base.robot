@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://stage-cotacao.youse.io  
+${url}                         https://qa-cotacao.youse.io  
 ${CPF}                         Convert To Number		                  12345675209
 ${Plate}                                                                  YOU0003
 ${CEP}                          Convert To Number                         04538133
@@ -11,14 +11,20 @@ ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  km3@youse.com.br
+${email}                                                                  mob@youse.com.br
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
+${url_manager}              https://qa-manager.youse.io
+${email}            laylla.rodrigues@youse.com.br
+${password}         Jesus777*
+${vin_brand_new}    9BGEA48A0LG248456
+${motivo_cancelamento}      falta de pagamento
+
 *** Keywords ***
-Nova sessão
+Nova sessão auto km
     Set Selenium Timeout                        30s
     Open Browser                       ${url}/seguro-auto-por-km           chrome
 
@@ -283,5 +289,64 @@ E informei endereço
     sleep   3s
 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[17]/div/div[2]/span/div/button
+
+Nova sessão manager
+
+    Set Selenium Timeout                        30s
+    Open Browser                       ${url}/employees/sign_in      chrome
+
+
+DADO que preencho email e senha 
+    input text                       css:input[id="employee_email"]         ${email}
+    input text                       css:input[id="employee_password"]      ${password}
+
+E cliquei em entrar
+
+    Scroll Element Into View         css:input[name="commit"][value="entrar"]
+    Click Element                    css:input[name="commit"][value="entrar"]
+
+E informei chassi que desejo encontrar
+
+    Wait Until Element Is Visible     css:input[id="q"][name="q"]
+    input text                        css:input[id="q"][name="q"]       ${vin_brand_new}
+    Click Element                     css:input[name="commit"][value="OK"]
+    Click Element                     xpath://*[@id="container"]/div[2]/section/div/table/tbody/tr/td[2]
+
+    Wait Until Element Is Visible     xpath://*[@id="container"]/section[14]
+    Scroll Element Into View          xpath://*[@id="container"]/section[14]
+    Click Element                     xpath://*[@id="container"]/section[14]/div/p/a
+
+    Wait Until Element Is Visible     css:select[id="insurance_policy_cancellation_requester"]
+    Double Click Element              css:select[id="insurance_policy_cancellation_requester"]
+
+    Wait Until Element Is Visible     css:option[value="company"]
+    Click Element                     css:option[value="company"]
+
+
+    Wait Until Element Is Visible     css:select[id="insurance_policy_cancellation_integration_id"]
+    Double Click Element              css:select[id="insurance_policy_cancellation_integration_id"]
+
+
+    Wait Until Element Is Visible            css:option[value="11"]
+    Click Element                            css:option[value="11"]
+
+    input text                        css:textarea[id="insurance_policy_cancellation_description"]          ${motivo_cancelamento}
+
+    Click Element                     css:input[name="commit"][value="Continuar"]
+
+    Click Element                     css:input[name="commit"][value="Confirmar Cancelamento"]
+
+    Wait Until Element Is Visible     xpath://*[@id="container"]/section[3]/div/p[3]/a     
+    Click Element                     xpath://*[@id="container"]/section[3]/div/p[3]/a
+
+    Wait Until Element Is Visible     css:input[name="commit"][value="Confirmar Cancelamento"]
+    Click Element                     css:input[name="commit"][value="Confirmar Cancelamento"]
+
+
+    Page Should Contain                       Beleza! Foi concluída a solicitação de cancelamento da apólice.
+
+
+
+
 
 

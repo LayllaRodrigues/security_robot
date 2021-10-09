@@ -1,6 +1,6 @@
 *** Settings ***
-Resource        ${EXECDIR}/resources/Base_apagando.robot
-Test Setup      Nova sessão
+Resource        ${EXECDIR}/resources/Base.robot
+Test Setup      Nova sessão manager
 Test Teardown   Encerra sessão
 Library         FakerLibrary    locale=pt_BR
 

@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${EXECDIR}/resources/Base.robot
-Test Setup      Nova sessão
+Test Setup      Nova sessão auto km
 Test Teardown   Encerra sessão
 Library         FakerLibrary    locale=pt_BR
 
