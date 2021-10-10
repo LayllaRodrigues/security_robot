@@ -3,10 +3,10 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url}                         https://qa-cotacao.youse.io  
-${CPF}                         Convert To Number		                  12345675209
-${Plate}                                                                  YOU0003
-${CEP}                          Convert To Number                         04538133
+${url_auto_km}                         https://qa-cotacao.youse.io  
+${CPF}                                 Convert To Number		                  12345675209
+${Plate}                               YOU0003
+${CEP}                                 Convert To Number                         04538133
 ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
@@ -18,15 +18,27 @@ ${CI_Number}                                                              563191
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
 ${url_manager}              https://qa-manager.youse.io
-${email}            laylla.rodrigues@youse.com.br
-${password}         Jesus777*
-${vin_brand_new}    9BGEA48A0LG248456
+${email}                    laylla.rodrigues@youse.com.br
+${password}                 Jesus777*
+${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
+${url_auto}                 https://qa.youse.io/
 
 *** Keywords ***
+
+Nova sessão auto
+
+    Set Selenium Timeout                        30s
+    Open Browser                       ${url_auto}      chrome
+
+Nova sessão manager
+
+    Set Selenium Timeout                        30s
+    Open Browser                       ${url_manager}/employees/sign_in      chrome
+
 Nova sessão auto km
     Set Selenium Timeout                        30s
-    Open Browser                       ${url}/seguro-auto-por-km           chrome
+    Open Browser                        ${url_auto_km}/seguro-auto-por-km           chrome
 
 Encerra sessão
     # Capture Page Screenshot
@@ -290,10 +302,7 @@ E informei endereço
 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[17]/div/div[2]/span/div/button
 
-Nova sessão manager
 
-    Set Selenium Timeout                        30s
-    Open Browser                       ${url}/employees/sign_in      chrome
 
 
 DADO que preencho email e senha 
@@ -345,6 +354,43 @@ E informei chassi que desejo encontrar
 
     Page Should Contain                       Beleza! Foi concluída a solicitação de cancelamento da apólice.
 
+
+Dado que selecionei cotar auto 
+    Click Element       css:button[class="sc-bdnxRM jvCTkj primary"]
+    Click Element       xpath://*[@id="gatsby-focus-wrapper"]/main/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/span/a
+
+
+E informei os dados do segurado 
+ [Arguments]          ${name}    ${CPF}      ${email}    ${TELEFONEFAKE}     
+    
+    ${name}                     FakerLibrary.Name
+    ${TELEFONEFAKE}             FakerLibrary.Phone Number
+
+    Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]        ${name}
+
+    Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]        ${email}
+
+    Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]       ${TELEFONEFAKE}  
+
+    Wait Until Element Is Visible       css:input[value="Continuar"]
+    Click Element                       css:input[value="Continuar"]
+
+E informei os dados do veiculo
+
+    Wait Until Element Is Visible       css:id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"
+    input text                          css:id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"       ${Plate}
+
+    Click Element                        css:div[data-value="auto|private"]
+
+    Click Element                        css:label[class="radio-button__fake-radio"][for="bullet_proof_true"]
+
+E os dados de pernoite
+
+    Wait Until Element Is Visible        css:input[id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]
+    input text                           css:input[id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]     ${CEP}
 
 
 
