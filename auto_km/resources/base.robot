@@ -392,6 +392,8 @@ E os dados de pernoite
     Wait Until Element Is Visible        css:input[id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]
     input text                           css:input[id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]     ${CEP}
 
+    
+
 
 
 
