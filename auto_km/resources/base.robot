@@ -3,7 +3,7 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${url_auto_km}                         https://qa-cotacao.youse.io  
+${url_auto_km}                         https://stage-cotacao.youse.io  
 ${CPF}                                 Convert To Number		                  12345675209
 ${Plate}                               YOU0003
 ${CEP}                                 Convert To Number                         04538133
@@ -18,11 +18,11 @@ ${CI_Number}                                                              563191
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
 ${url_manager}              https://qa-manager.youse.io
-${email}                    laylla.rodrigues@youse.com.br
+# ${email}                    km@youse.com.br
 ${password}                 Jesus777*
 ${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
-${url_auto}                 https://qa.youse.io/
+${url_auto}                 https://www-stage.youse.io/
 
 *** Keywords ***
 
