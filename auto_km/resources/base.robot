@@ -11,14 +11,14 @@ ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  mob@youse.com.br
+${email}                                                                  cross@youse.com.br
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
 ${url_manager}              https://qa-manager.youse.io
-# ${email}                    km@youse.com.br
+# ${email}                  km@youse.com.br
 ${password}                 Jesus777*
 ${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
@@ -356,7 +356,7 @@ E informei chassi que desejo encontrar
 
 
 Dado que selecionei cotar auto 
-    Click Element       css:button[class="sc-bdnxRM jvCTkj primary"]
+    Click Element       xpath://*[@id="gatsby-focus-wrapper"]/main/div[2]/div/div/div[1]/div[1]/div[1]/div/div/span
     Click Element       xpath://*[@id="gatsby-focus-wrapper"]/main/div[2]/div/div/div[2]/div/div/div[2]/div/div/div[3]/div/span/a
 
 
