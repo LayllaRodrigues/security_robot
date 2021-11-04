@@ -43,7 +43,7 @@ Nova sessão auto km
 
 Encerra sessão
     # Capture Page Screenshot
-    Close All Browsers
+    # Close All Browsers
 
 Validando que estou na tela inicial
 
@@ -147,7 +147,7 @@ E selecionei o plano
 
 
 QUANDO eu preencher os dados do cartão de crédito 
-    [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
+    # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
 
     Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
@@ -386,7 +386,7 @@ E passei os dados do segurado
 
 E informei a placa e dados do veiculo
         Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
-        input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you00000
+        input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0002
 
         sleep    2
 
@@ -409,40 +409,63 @@ E informei a placa e dados do veiculo
         Click Element        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
         
         Click Element    css:label[class="radio-button__fake-radio"][for="product_consent_false"]
+
+        Click Element    css:input[type="submit"][name="commit"]
+
         Wait Until Element Is Visible        xpath://*[@id="modal_01"]/div[4]/a[1]
         Click Element    xpath://*[@id="modal_01"]/div[4]/a[1]
+
+
 
 E escolhi o plano basico
     Wait Until Element Is Visible        xpath://*[@id="preformatted-coverages-auto-plans-9"]/div[1]/button
     Click Element    xpath://*[@id="preformatted-coverages-auto-plans-9"]/div[1]/button
 
+
+
 Quando os dados de pagamento forem preenchidos corretamente
     # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
-    
-    Click Element    xpath://*[@id="edit_auto_order_flow_payment_data_1343859"]/div/div[1]/div/ul/li[3]/div[1]/label
-
-
+ 
+    Wait Until Element Is Visible              css:input[name="email"][id="email"]
+    Input Text                                 css:input[name="email"][id="email"]        ${email}
+ 
+    Click Element                              css:input[value="próximo passo"]
+ 
+    Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
+    Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
+ 
+    Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
+  
+    Click Element                              css:input[name="commit"][value="entrar"]
+ 
+    Click Element                              css:input[class="offers__checkbox_input"]
+    Wait Until Element Is Visible              css:a[data-offer-accept="life"]
+    Click Element                              css:a[data-offer-accept="life"]
+ 
+   # Click Element                xpath://*[@id="edit_auto_order_flow_payment_data_1343866"]/div/div[1]/div/ul/li[3]/div[1]/label
+    Wait Until Element Is Visible              css:input[id="encryptedCardNumber"]
+ 
+    Scroll Element Into View                   css:input[id="encryptedCardNumber"]
+ 
     Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]
     Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]                     ${card}
-    Unselect Frame       
-
+    Unselect Frame      
+ 
     Select Frame                                css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]                     ${date}
-    Unselect Frame   
-
+    Unselect Frame  
+ 
     Select Frame                                css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]                    ${cvv}
-    Unselect Frame  
-
+    Unselect Frame 
+ 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
-
-    Input text                                  xpath://*[@id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]        ${email}
-
+ 
 
 E informei os dados do veiculo
 

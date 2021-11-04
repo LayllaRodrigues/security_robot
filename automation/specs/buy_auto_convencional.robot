@@ -11,5 +11,5 @@ Preenchendo cotação
     E passei os dados do segurado
     E informei a placa e dados do veiculo 
     E escolhi o plano basico
-    QUANDO eu preencher os dados do cartão de crédito
+    Quando os dados de pagamento forem preenchidos corretamente
     ENTÃO devo visualizar a apolice 
