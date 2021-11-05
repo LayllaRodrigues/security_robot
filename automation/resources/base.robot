@@ -42,8 +42,8 @@ Nova sessão auto km
     Open Browser                        ${url_auto_km}/seguro-auto-por-km           chrome
 
 Encerra sessão
-    # Capture Page Screenshot
-    # Close All Browsers
+    Capture Page Screenshot
+    Close All Browsers
 
 Validando que estou na tela inicial
 
@@ -386,7 +386,7 @@ E passei os dados do segurado
 
 E informei a placa e dados do veiculo
         Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
-        input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0002
+        input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0003
 
         sleep    2
 
@@ -443,13 +443,10 @@ Quando os dados de pagamento forem preenchidos corretamente
     Wait Until Element Is Visible              css:a[data-offer-accept="life"]
     Click Element                              css:a[data-offer-accept="life"]
  
-   # Click Element                xpath://*[@id="edit_auto_order_flow_payment_data_1343866"]/div/div[1]/div/ul/li[3]/div[1]/label
-    Wait Until Element Is Visible              css:input[id="encryptedCardNumber"]
+    Wait Until Element Is Visible              xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[1]/label/span[2]/span
+    Scroll Element Into View                   xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[1]/label/span[2]/span
  
-    Scroll Element Into View                   css:input[id="encryptedCardNumber"]
- 
-    Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
-    Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
+    Select Frame                               css:iframe[class="js-iframe"][title="Iframe for secured card data input field"]
     Wait Until Element Is Visible              css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]
     Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]                     ${card}
     Unselect Frame      
