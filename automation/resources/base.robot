@@ -141,14 +141,15 @@ E informei os dados de pernoite
 
 E selecionei o plano
 
-    sleep       5s
+    sleep       6s
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ jirKkk"]
     Click Element                               css:button[class="sc-fnVZcZ jirKkk"]
-
+    sleep       3s
 
 QUANDO eu preencher os dados do cartão de crédito 
-    # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
+    [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
+
 
     Wait Until Element Is Visible              css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
     Select Frame                               css:iframe[class="js-iframe"][title="Iframe para número de cartão seguro"]
