@@ -4,7 +4,7 @@ Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
 ${cpf2}                                Convert To Number        12345675128
-${url_auto_km}                         https://qa-cotacao.youse.io  
+${url_auto_km}                         https://stage-cotacao.youse.io  
 ${CPF}                                 Convert To Number		                  12345675128
 ${Plate}                               YOU0003
 ${CEP}                                 Convert To Number                         04538133
@@ -18,12 +18,15 @@ ${name}                                                                   John Y
 ${CI_Number}                                                              5631910303657-4
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
-${url_manager}              https://qa-manager.youse.io
+${url_manager}              https://stage-manager.youse.io
 # ${email}                  km@youse.com.br
 ${password}                 Jesus777*
 ${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
 ${url_auto}                 https://www-stage.youse.io/seguro-auto/
+${email_manager}            laylla.rodrigues@youse.com.br
+${password_manager}         Jesus777* 
+
 
 *** Keywords ***
 
@@ -314,8 +317,8 @@ E informei endereço
 
 
 DADO que preencho email e senha 
-    input text                       css:input[id="employee_email"]         ${email}
-    input text                       css:input[id="employee_password"]      ${password}
+    input text                       css:input[id="employee_email"]         ${email_manager}
+    input text                       css:input[id="employee_password"]      ${password_manager}
 
 E cliquei em entrar
 
@@ -325,7 +328,7 @@ E cliquei em entrar
 E informei chassi que desejo encontrar
 
     Wait Until Element Is Visible     css:input[id="q"][name="q"]
-    input text                        css:input[id="q"][name="q"]       ${vin_brand_new}
+    input text                        css:input[id="q"][name="q"]       ${vin}
     Click Element                     css:input[name="commit"][value="OK"]
     Click Element                     xpath://*[@id="container"]/div[2]/section/div/table/tbody/tr/td[2]
 
