@@ -4,7 +4,7 @@ Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
 ${cpf2}                                Convert To Number        12345675128
-${url_auto_km}                         https://stage-cotacao.youse.io  
+${url_auto_km}                         https://qa-cotacao.youse.io  
 ${CPF}                                 Convert To Number		                  12345675128
 ${Plate}                               YOU0003
 ${CEP}                                 Convert To Number                         04538133
@@ -209,8 +209,8 @@ E informei dados do carro
     Wait Until Element Is Visible       css:div[role="button"][id="vehicleYear"]
     Click Element                       css:div[role="button"][id="vehicleYear"]
 
-    Wait Until Element Is Visible       xpath://*[@id="menu-"]/div[3]/ul/li[2]
-    Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[2]
+    Wait Until Element Is Visible       xpath://*[@id="menu-"]/div[3]/ul/li[3]
+    Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[3]
 
     sleep   1s
 
