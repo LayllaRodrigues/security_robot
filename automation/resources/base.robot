@@ -456,16 +456,16 @@ Quando os dados de pagamento forem preenchidos corretamente
     Input Text                                 css:input[class="js-iframe-input input-field"][id="encryptedCardNumber"]                     ${card}
     Unselect Frame      
  
-    Select Frame                                css:iframe[class="js-iframe"][title="Iframe para data de validade do cartão seguro"]
+    Select Frame                                xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[2]/div[1]/label/span[2]/span/iframe
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]                     ${date}
-    Unselect Frame  
+    Unselect Frame                              
  
-    Select Frame                                css:iframe[class="js-iframe"][title="Iframe para código de segurança do cartão seguro"]
+    Select Frame                                css:iframe[class="js-iframe"][title="Iframe for secured card data input field"]
     Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]                    ${cvv}
-    Unselect Frame 
- 
+    Unselect Frame                               
+    
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
  
 
