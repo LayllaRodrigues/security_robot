@@ -172,10 +172,20 @@ QUANDO eu preencher os dados do cartão de crédito
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
 
-ENTÃO devo visualizar a apolice 
-    Wait Until Element Is Visible                  xpath://*[@id="container"]/section/div[1]/div[1]/div/div/div[2]/a 
-    Page Should Contain                            Parabéns! Agora você é um Youser.
+    Wait Until Element Is Visible            xpath://*[@id="container"]/div[4]/section/div[1]
+    Click Element                            xpath://*[@id="container"]/div[4]/section/div[1]
+
+
+
+ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
+
+    ${tela_sucesso}                                 Get Locations
+    Location Should Contain                         download_policy
     
+   
+
+
+
 
 
 E confirmar o email 
@@ -461,13 +471,18 @@ Quando os dados de pagamento forem preenchidos corretamente
     Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedExpiryDate"]                     ${date}
     Unselect Frame                              
  
-    Select Frame                                css:iframe[class="js-iframe"][title="Iframe for secured card data input field"]
-    Wait Until Element Is Visible               css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]
-    Input Text                                  css:input[class="js-iframe-input input-field"][id="encryptedSecurityCode"]                    ${cvv}
+    Select Frame                                xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[2]/div[2]/label/span[2]/span/iframe
+    Wait Until Element Is Visible               xpath://*[@id="encryptedSecurityCode"]
+    Input Text                                  xpath://*[@id="encryptedSecurityCode"]                    ${cvv}
     Unselect Frame                               
-    
+
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
+
+    Click Element                               css:input[value="Finalizar compra"]
+
  
+
+     
 
 E informei os dados do veiculo
 

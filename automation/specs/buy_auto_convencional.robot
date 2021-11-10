@@ -12,4 +12,5 @@ Preenchendo cotação
     E informei a placa e dados do veiculo 
     E escolhi o plano basico
     Quando os dados de pagamento forem preenchidos corretamente
-    ENTÃO devo visualizar a apolice 
+    ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
+
