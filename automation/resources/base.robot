@@ -442,10 +442,11 @@ Quando os dados de pagamento forem preenchidos corretamente
     Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
   
     Click Element                              css:input[name="commit"][value="entrar"]
- 
-    Click Element                              css:input[class="offers__checkbox_input"]
-    Wait Until Element Is Visible              css:a[data-offer-accept="life"]
-    Click Element                              css:a[data-offer-accept="life"]
+
+
+    Wait Until Element Is Visible              css:li[class="offers__list-item"][data-offer-refused-all]
+    Click Element                              css:li[class="offers__list-item"][data-offer-refused-all]
+   
  
     Wait Until Element Is Visible              xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[1]/label/span[2]/span
     Scroll Element Into View                   xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[1]/label/span[2]/span
