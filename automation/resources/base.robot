@@ -13,7 +13,8 @@ ${card}                                                                   4111 1
 ${date}                                                                   0330
 ${cvv}                                                                    737
 ${email}                                                                  laylla.rodrigues@youse.com.br
-${vin}                                                                    9BHBG41CAFP347795
+${vin}                                                                    9BD135019B2176469
+
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
 ${vin_brand_new}                                                          9BGEA48A0LG248456
@@ -196,9 +197,9 @@ E encerrar a compra
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 Aguardando sucesso da keyword Então
-    ${result}           Wait Until Keyword Succeeds     2x	        10s	    ENTÃO devo visualizar a tela de sucesso 
+    ${result}           Wait Until Keyword Succeeds     2x	        15s	    ENTÃO devo visualizar a tela de sucesso 
 Aguardando sucesso da keyword Então CONVENCIONAL
-    ${result}           Wait Until Keyword Succeeds     2x	        10s	        ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
+    ${result}           Wait Until Keyword Succeeds     2x	        15s	        ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
  
 
 ENTÃO devo visualizar a tela de sucesso 
