@@ -12,5 +12,6 @@ Preenchendo cotação
     E informei a placa e dados do veiculo 
     E escolhi o plano basico
     Quando os dados de pagamento forem preenchidos corretamente
+    Aguardando sucesso da keyword Então CONVENCIONAL
     ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
 

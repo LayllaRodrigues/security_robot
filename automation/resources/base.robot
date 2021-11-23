@@ -6,13 +6,13 @@ Library     FakerLibrary        locale=pt_BR
 ${cpf2}                                Convert To Number        12345675128
 ${url_auto_km}                         https://stage-cotacao.youse.io  
 ${CPF}                                 Convert To Number		                  12345675128
-${Plate}                               YOU0003
+${Plate}                               YOU0000
 ${CEP}                                 Convert To Number                         04538133
 ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  cross@youse.com.br
+${email}                                                                  laylla.rodrigues@youse.com.br
 ${vin}                                                                    9BHBG41CAFP347795
 ${name}                                                                   John Youser
 ${CI_Number}                                                              5631910303657-4
@@ -60,8 +60,7 @@ DADO que preenchi os dados do segurado e motorista
     ${name}                     FakerLibrary.Name
     ${TELEFONEFAKE}             FakerLibrary.Phone Number
 
-
-    Wait Until Element Is Visible               css:input[id="insuredPersonName"] 
+    sleep  2
     Input Text                                  css:input[id="insuredPersonName"]           ${name}
     Click Element                               css:input[type='tel']       
     Input Text                                  css:input[type='tel']                        ${CPF}
@@ -70,14 +69,12 @@ DADO que preenchi os dados do segurado e motorista
     sleep   1
     Click Element                               id:insuredPersonMaritalStatus                        
     Click Element                               css:li[role="option"][data-value="single"]  
-    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1]
-    Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
+    # Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[1]/span[1]/span[1] 
 
 E informei placa e versao do carro
     [Arguments]                                 ${Plate}
    
-   sleep    2
    
     Wait Until Element Is Visible               css:input[id=vehicleLicensePlate]                        
     Click Element                               css:input[id=vehicleLicensePlate]          
@@ -98,23 +95,22 @@ E informei vin e versao do carro
 
 E selecionei o tipo de dono e uso do carro 
 
-    sleep   1s
 
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
 
-    sleep  1s
+    sleep    1
 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
+
+    sleep    1
     
-    sleep  1s
 
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
     Click Element                               css:div[id="vehicleOwnershipStatus"]
 
-    sleep  1s
-
+    sleep    1
     Click Element                               css:li[data-value="owned_by_person"]    
 
 E informei que meu carro é 0km 
@@ -125,17 +121,21 @@ E informei os dados de pernoite
 
     sleep   2s
 
-
-    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
-    Click Element                               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
-    Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
-
-    # sleep   3s
-    
     Wait Until Element Is Visible               css:input[id="insuredPersonAddressNeighborhood"]
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
     Input Text                                  css:input[id="insuredPersonAddressNumber"]                                          ${AddressNumber}
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
+
+    
+    sleep   1s
+    
+    Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
+    Click Element                               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
+    Input Text                                  xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input                ${CEP}
+    Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
+
+
+    
 
     sleep   1s
 
@@ -172,15 +172,15 @@ QUANDO eu preencher os dados do cartão de crédito
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
 
-    Wait Until Element Is Visible            xpath://*[@id="container"]/div[4]/section/div[1]
-    Click Element                            xpath://*[@id="container"]/div[4]/section/div[1]
+    # Wait Until Element Is Visible            xpath://*[@id="container"]/div[4]/section/div[1]
+    # Click Element                            xpath://*[@id="container"]/div[4]/section/div[1]
 
 
 
 ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
 
     ${tela_sucesso}                                 Get Locations
-    Location Should Contain                         download_policy
+    Location Should Contain                         insurance_policies
     
    
 
@@ -196,8 +196,10 @@ E encerrar a compra
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 Aguardando sucesso da keyword Então
-    ${result}           Wait Until Keyword Succeeds     2x	        30s	    ENTÃO devo visualizar a tela de sucesso 
-
+    ${result}           Wait Until Keyword Succeeds     2x	        10s	    ENTÃO devo visualizar a tela de sucesso 
+Aguardando sucesso da keyword Então CONVENCIONAL
+    ${result}           Wait Until Keyword Succeeds     2x	        10s	        ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
+ 
 
 ENTÃO devo visualizar a tela de sucesso 
 
@@ -279,8 +281,7 @@ DADO que preenchi os dados do segurado e segundo motorista
     ${TELEFONEFAKE}             FakerLibrary.Phone Number
     
 
-
-    Wait Until Element Is Visible               css:input[id="insuredPersonName"] 
+    sleep     3s
     Input Text                                  css:input[id="insuredPersonName"]           ${name}
     Click Element                               css:input[type='tel']       
     Input Text                                  css:input[type='tel']                        ${CPF}
@@ -383,51 +384,53 @@ Dado que selecionei cotar auto
 
 
 E passei os dados do segurado     
-        ${name}                     FakerLibrary.Name
-        ${TELEFONEFAKE}             FakerLibrary.Phone Number
+    ${name}                     FakerLibrary.Name
+    ${TELEFONEFAKE}             FakerLibrary.Phone Number
 
-        Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]
-        input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]        ${name}
+    Wait Until Element Is Visible        css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]
+    
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]        ${name}
 
-        Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]
-        input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]        ${email}
+    Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]
 
-        Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]
-        input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]       ${TELEFONEFAKE}  
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]        ${email}
 
-        Wait Until Element Is Visible       css:input[value="Continuar"]
-        Click Element                       css:input[value="Continuar"]
+    Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]       ${TELEFONEFAKE}  
+
+    Wait Until Element Is Visible       css:input[value="Continuar"]
+    Click Element                       css:input[value="Continuar"]
 
 E informei a placa e dados do veiculo
-        Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
-        input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0003
+    Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
+    input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0003
 
-        sleep    2
+    sleep    2
 
-        Click Element    xpath://*[@id="vehicle-usage-section"]/fieldset/div/div[1]
+    Click Element    xpath://*[@id="vehicle-usage-section"]/fieldset/div/div[1]
 
-        Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="bullet_proof_false"]
+    Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="bullet_proof_false"]
 
-        Click Element    css:label[class="radio-button__fake-radio"][for="bullet_proof_false"]
+    Click Element    css:label[class="radio-button__fake-radio"][for="bullet_proof_false"]
 
-        Input text       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]     04538-133
-        click Element    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]
+    Input text       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]     04538-133
+    click Element    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]
 
-        sleep    2
-        Input text        xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]    90
+    sleep    2
+    Input text        xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]    90
 
-        Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        123.456.751-28
+    Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        123.456.751-28
 
-        Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
+    Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
 
-        Click Element        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
+    Click Element        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
         
-        Click Element    css:label[class="radio-button__fake-radio"][for="product_consent_false"]
+    Click Element    css:label[class="radio-button__fake-radio"][for="product_consent_false"]
 
-        Click Element    css:input[type="submit"][name="commit"]
+    Click Element    css:input[type="submit"][name="commit"]
 
-        Wait Until Element Is Visible        xpath://*[@id="modal_01"]/div[4]/a[1]
-        Click Element    xpath://*[@id="modal_01"]/div[4]/a[1]
+    Wait Until Element Is Visible        xpath://*[@id="modal_01"]/div[4]/a[1]
+    Click Element    xpath://*[@id="modal_01"]/div[4]/a[1]
 
 
 
@@ -441,17 +444,17 @@ Quando os dados de pagamento forem preenchidos corretamente
     # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
  
-    Wait Until Element Is Visible              css:input[name="email"][id="email"]
-    Input Text                                 css:input[name="email"][id="email"]        ${email}
+    # Wait Until Element Is Visible              css:input[name="email"][id="email"]
+    # Input Text                                 css:input[name="email"][id="email"]        ${email}
  
-    Click Element                              css:input[value="próximo passo"]
+    # Click Element                              css:input[value="próximo passo"]
  
-    Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
-    Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
+    # Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
+    # Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
  
-    Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
+    # Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
   
-    Click Element                              css:input[name="commit"][value="entrar"]
+    # Click Element                              css:input[name="commit"][value="entrar"]
 
 
     Wait Until Element Is Visible              css:li[class="offers__list-item"][data-offer-refused-all]
@@ -477,6 +480,10 @@ Quando os dados de pagamento forem preenchidos corretamente
     Unselect Frame                               
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
+
+    Input Text                                  css:input[id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]    ${email}
+
+    Click Element                               css:input[id="auto_order_flow_payment_data_insured_person_attributes_email"]
 
     Click Element                               css:input[value="Finalizar compra"]
 

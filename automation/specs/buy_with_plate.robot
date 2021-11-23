@@ -7,8 +7,8 @@ Library         FakerLibrary    locale=pt_BR
 *** Test Cases ***
 Preenchendo cotação
 
-    Validando que estou na tela inicial
-    Dado Que Preenchi Os Dados Do Segurado E Motorista       ${TEST_NAME}    ${CPF}      ${email}    ${None}
+    Validando que estou na tela inicial       
+    DADO que preenchi os dados do segurado e motorista       ${TEST_NAME}    ${CPF}      ${email}    ${None}
     E informei placa e versao do carro                       ${Plate} 
     E selecionei o tipo de dono e uso do carro                  
     E informei os dados de pernoite                          ${CEP}        ${AddressNumber}
