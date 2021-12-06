@@ -3,16 +3,16 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${cpf2}                                Convert To Number        12345675128
-${url_auto_km}                         https://stage-cotacao.youse.io  
-${CPF}                                 Convert To Number		                  12345675128
-${Plate}                               YOU0000
+${cpf2}                                Convert To Number        38249531884
+${url_auto_km}                         https://qa-cotacao.youse.io  
+${CPF}                                 Convert To Number		                  38249531884
+${Plate}                               YOU0002
 ${CEP}                                 Convert To Number                         04538133
 ${AddressNumber}                                                          90
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  laylla.rodrigues@youse.com.br
+${email}                                                                  laylla@youse.com.br
 ${vin}                                                                    9BD135019B2176469
 
 ${name}                                                                   John Youser
@@ -24,7 +24,7 @@ ${url_manager}              https://stage-manager.youse.io
 ${password}                 Jesus777*
 ${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
-${url_auto}                 https://www-stage.youse.io/seguro-auto/
+${url_auto}                 https://qa.youse.io/seguro-auto/
 ${email_manager}            laylla.rodrigues@youse.com.br
 ${password_manager}         Jesus777* 
 
@@ -404,7 +404,7 @@ E passei os dados do segurado
 
 E informei a placa e dados do veiculo
     Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
-    input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        you0003
+    input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        JIR-7922
 
     sleep    2
 
@@ -420,7 +420,7 @@ E informei a placa e dados do veiculo
     sleep    2
     Input text        xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]    90
 
-    Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        123.456.751-28
+    Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        38249531884
 
     Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
 
@@ -445,17 +445,17 @@ Quando os dados de pagamento forem preenchidos corretamente
     # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
  
-    # Wait Until Element Is Visible              css:input[name="email"][id="email"]
-    # Input Text                                 css:input[name="email"][id="email"]        ${email}
+    Wait Until Element Is Visible              css:input[name="email"][id="email"]
+    Input Text                                 css:input[name="email"][id="email"]        ${email}
  
-    # Click Element                              css:input[value="próximo passo"]
+    Click Element                              css:input[value="próximo passo"]
  
-    # Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
-    # Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
+    Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
+    Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
  
-    # Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
+    Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
   
-    # Click Element                              css:input[name="commit"][value="entrar"]
+    Click Element                              css:input[name="commit"][value="entrar"]
 
 
     Wait Until Element Is Visible              css:li[class="offers__list-item"][data-offer-refused-all]
@@ -482,9 +482,9 @@ Quando os dados de pagamento forem preenchidos corretamente
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
 
-    Input Text                                  css:input[id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]    ${email}
+    # Input Text                                  css:input[id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]    ${email}
 
-    Click Element                               css:input[id="auto_order_flow_payment_data_insured_person_attributes_email"]
+    # Click Element                               css:input[id="auto_order_flow_payment_data_insured_person_attributes_email"]
 
     Click Element                               css:input[value="Finalizar compra"]
 
