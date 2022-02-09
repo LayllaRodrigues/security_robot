@@ -3,19 +3,19 @@ Library     SeleniumLibrary
 Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
-${cpf2}                                Convert To Number        38249531884
+${cpf2}                                Convert To Number        12345675802
 ${url_auto_km}                         https://qa-cotacao.youse.io  
-${CPF}                                 Convert To Number		                  38249531884
-${Plate}                               YOU0002
+${CPF}                                 Convert To Number		                  12345675802
+${Plate}                               YOU0000
 ${CEP}                                 Convert To Number                         04538133
-${AddressNumber}                                                          90
+${AddressNumber}                                                          920
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  laylla@youse.com.br
+${email}                                                                  laylla+24@youse.com.br
 ${vin}                                                                    9BD135019B2176469
-
-${name}                                                                   John Youser
+${senha_auto}                                                             Youse123*
+${name}                                                                   Mauro Youser
 ${CI_Number}                                                              5631910303657-4
 ${vin_brand_new}                                                          9BGEA48A0LG248456
 ${result} 
@@ -32,7 +32,6 @@ ${password_manager}         Jesus777*
 *** Keywords ***
 
 Nova sessão auto
-
     Set Selenium Timeout                        30s
     Open Browser                       ${url_auto}      chrome
 
@@ -182,6 +181,10 @@ ENTÃO devo visualizar a tela de sucesso AUTO CONVENCIONAL
 
     ${tela_sucesso}                                 Get Locations
     Location Should Contain                         insurance_policies
+    Input Text                                      css:input[id="user_password"]                    ${senha_auto}
+    Input Text                                      css:input[id="user_password_confirmation"]          ${senha_auto}
+    Click Element                                   css:input[value="finalizar cadastro"]
+
     
    
 
@@ -404,7 +407,7 @@ E passei os dados do segurado
 
 E informei a placa e dados do veiculo
     Wait Until Element Is Visible    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]
-    input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]        JIR-7922
+    input text                       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_license_plate_or_vin"]       YOU0000
 
     sleep    2
 
@@ -420,7 +423,7 @@ E informei a placa e dados do veiculo
     sleep    2
     Input text        xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]    90
 
-    Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        38249531884
+    Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        123.456.758-02
 
     Wait Until Element Is Visible        css:label[class="radio-button__fake-radio"][for="has_insurance_false"] 
 
@@ -442,24 +445,23 @@ E escolhi o plano basico
 
 
 Quando os dados de pagamento forem preenchidos corretamente
-    # [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
     ${name}                                    FakerLibrary.Name
  
-    Wait Until Element Is Visible              css:input[name="email"][id="email"]
-    Input Text                                 css:input[name="email"][id="email"]        ${email}
+    # Wait Until Element Is Visible              css:input[name="email"][id="email"]
+    # Input Text                                 css:input[name="email"][id="email"]        ${email}
  
-    Click Element                              css:input[value="próximo passo"]
+    # Click Element                              css:input[value="próximo passo"]
  
-    Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
-    Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
+    # Wait Until Element Is Visible              css:input[name="user[password]"][id="user_password"]
+    # Input Text                                 css:input[name="user[password]"][id="user_password"]        Youse123*
  
-    Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
+    # Scroll Element Into View                   css:a[class="button button--secondary"][tabindex="7"]
   
-    Click Element                              css:input[name="commit"][value="entrar"]
+    # Click Element                              css:input[name="commit"][value="entrar"]
 
 
-    Wait Until Element Is Visible              css:li[class="offers__list-item"][data-offer-refused-all]
-    Click Element                              css:li[class="offers__list-item"][data-offer-refused-all]
+    Wait Until Element Is Visible              css:li[data-offer-refused-all]
+    Click Element                              css:li[data-offer-refused-all]
    
  
     Wait Until Element Is Visible              xpath://*[@id="component-container"]/div/div/div[2]/div[1]/div[1]/label/span[2]/span
@@ -482,9 +484,9 @@ Quando os dados de pagamento forem preenchidos corretamente
 
     Input Text                                  css:input[placeholder="Nome como no cartão"]      ${name}
 
-    # Input Text                                  css:input[id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]    ${email}
+    Input Text                                  css:input[id="auto_order_flow_payment_data_insured_person_attributes_confirmation_email"]    ${email}
 
-    # Click Element                               css:input[id="auto_order_flow_payment_data_insured_person_attributes_email"]
+    Click Element                               css:input[id="auto_order_flow_payment_data_insured_person_attributes_email"]
 
     Click Element                               css:input[value="Finalizar compra"]
 
