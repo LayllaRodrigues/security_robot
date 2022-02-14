@@ -12,7 +12,7 @@ ${AddressNumber}                                                          920
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  laylla+24@youse.com.br
+${email}                                                                  laylla+67@youse.com.br 
 ${vin}                                                                    9BD135019B2176469
 ${senha_auto}                                                             Youse123*
 ${name}                                                                   Mauro Youser
@@ -439,8 +439,8 @@ E informei a placa e dados do veiculo
 
 
 E escolhi o plano basico
-    Wait Until Element Is Visible        xpath://*[@id="preformatted-coverages-auto-plans-9"]/div[1]/button
-    Click Element    xpath://*[@id="preformatted-coverages-auto-plans-9"]/div[1]/button
+    Wait Until Element Is Visible        xpath://*[@id="preformatted-coverages-auto-plans-11"]/div[1]/button
+    Click Element    xpath://*[@id="preformatted-coverages-auto-plans-11"]/div[1]/button
 
 
 
