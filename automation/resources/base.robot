@@ -4,7 +4,7 @@ Library     FakerLibrary        locale=pt_BR
 
 *** Variables  ***
 ${cpf2}                                Convert To Number        12345675802
-${url_auto_km}                         https://stage-cotacao.youse.io  
+${url_auto_km}                         https://qa-cotacao.youse.io  
 ${CPF}                                 Convert To Number		                  12345675802
 ${Plate}                               YOU0000
 ${CEP}                                 Convert To Number                         04538133
@@ -12,7 +12,7 @@ ${AddressNumber}                                                          920
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  laylla+friends3@youse.com.br 
+${email}                                                                  laylla+sin3@youse.com.br 
 ${vin}                                                                    9BD135019B2176469
 ${senha_auto}                                                             Youse123*
 ${name}                                                                   Mauro Youser
@@ -24,7 +24,7 @@ ${url_manager}              https://stage-manager.youse.io
 ${password}                 Jesus777*
 ${vin_brand_new}            9BGEA48A0LG248456
 ${motivo_cancelamento}      falta de pagamento
-${url_auto}                 https://www-stage.youse.io/seguro-auto/
+${url_auto}                 https://qa.youse.io/seguro-auto/
 ${email_manager}            laylla.rodrigues@youse.com.br
 ${password_manager}         Jesus777* 
 
@@ -60,13 +60,13 @@ DADO que preenchi os dados do segurado e motorista
     ${name}                     FakerLibrary.Name
     ${TELEFONEFAKE}             FakerLibrary.Phone Number
 
-    sleep  2
+    # sleep  2
     Input Text                                  css:input[id="insuredPersonName"]           ${name}
     Click Element                               css:input[type='tel']       
     Input Text                                  css:input[type='tel']                        ${CPF}
     Input Text                                  css:input[type='email']                      ${email}
     Input Text                                  css:input[type='phone']                      ${TELEFONEFAKE}
-    sleep   1
+    # sleep   1
     Click Element                               id:insuredPersonMaritalStatus                        
     Click Element                               css:li[role="option"][data-value="single"]  
     # Click Element                               xpath://*[@id="root"]/div[2]/div/div[8]/div/div[2]/div/label[2]/span[1]/span[1]/input
@@ -99,12 +99,12 @@ E selecionei o tipo de dono e uso do carro
     Wait Until Element Is Visible               css:div[id="vehicleUsage"]
     Click Element                               css:div[id="vehicleUsage"] 
 
-    sleep    1
+    # sleep    1
 
     Wait Until Element Is Visible               xpath://*[@id="menu-"]/div[3]/ul/li[1]
     Click Element                               xpath://*[@id="menu-"]/div[3]/ul/li[1]
 
-    sleep    1
+    # sleep    1
     
 
     Wait Until Element Is Visible               css:div[id="vehicleOwnershipStatus"]
@@ -119,7 +119,7 @@ E informei que meu carro é 0km
 E informei os dados de pernoite
     [Arguments]                                 ${CEP}      ${AddressNumber}
 
-    sleep   2s
+    # sleep   2s
 
     Wait Until Element Is Visible               css:input[id="insuredPersonAddressNeighborhood"]
     Click Element                               css:input[id="insuredPersonAddressNeighborhood"]
@@ -127,7 +127,7 @@ E informei os dados de pernoite
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[15]/div/div[2]/div/label[1]/span[1]/span[1]
 
     
-    sleep   1s
+    # sleep   1s
     
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[13]/div[2]/div/div[2]/div/input 
@@ -137,17 +137,17 @@ E informei os dados de pernoite
 
     
 
-    sleep   1s
+    # sleep   1s
 
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
 
 E selecionei o plano
 
-    sleep       6s
+    # sleep       6s
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ jirKkk"]
     Click Element                               css:button[class="sc-fnVZcZ jirKkk"]
-    sleep       3s
+    # sleep       3s
 
 QUANDO eu preencher os dados do cartão de crédito 
     [Arguments]                                ${card}       ${date}      ${cvv}      ${name} 
@@ -231,7 +231,7 @@ E informei dados do carro
     Wait Until Element Is Visible       xpath://*[@id="menu-"]/div[3]/ul/li[3]
     Click Element                       xpath://*[@id="menu-"]/div[3]/ul/li[3]
 
-    sleep   1s
+    # sleep   1s
 
     Click Element                                css:div[id="vehicleVersion"]
     Wait Until Element Is Visible                xpath://*[@id="menu-"]/div[3]/ul/li[2]
@@ -253,7 +253,7 @@ E realizei aceite LGPD
 
 E ok
 
-    sleep   2
+    # sleep   2
     Wait Until Element Is Visible               css:button[class="sc-fnVZcZ kApXCP"]
     Click Element                               css:button[class="sc-fnVZcZ kApXCP"]
     
@@ -285,7 +285,7 @@ DADO que preenchi os dados do segurado e segundo motorista
     ${TELEFONEFAKE}             FakerLibrary.Phone Number
     
 
-    sleep     3s
+    # sleep     3s
     Input Text                                  css:input[id="insuredPersonName"]           ${name}
     Click Element                               css:input[type='tel']       
     Input Text                                  css:input[type='tel']                        ${CPF}
@@ -310,7 +310,7 @@ DADO que preenchi os dados do segurado e segundo motorista
 
 E informei endereço
     [Arguments]                                 ${CEP}      ${AddressNumber}
-    sleep   2s
+    # sleep   2s
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]
     Input Text                                  xpath://*[@id="root"]/div[2]/div/div[14]/div[2]/div/div[2]/div/input                ${CEP}
@@ -324,7 +324,7 @@ E informei endereço
     Wait Until Element Is Visible               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]/span[1]
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[16]/div/div[2]/div/label[1]/span[1]/span[1]
     
-    sleep   3s
+    # sleep   3s
 
     Click Element                               xpath://*[@id="root"]/div[2]/div/div[17]/div/div[2]/span/div/button
 
@@ -420,7 +420,7 @@ E informei a placa e dados do veiculo
     Input text       xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_zipcode"]     04538-133
     click Element    xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]
 
-    sleep    2
+    # sleep    2
     Input text        xpath://*[@id="auto_order_flow_pricing_requirements_vehicle_attributes_address_attributes_number"]    90
 
     Input text        css:input[id="auto_order_flow_pricing_requirements_insured_person_attributes_cpf"]        123.456.758-02
