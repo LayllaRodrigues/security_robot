@@ -12,7 +12,7 @@ ${AddressNumber}                                                          920
 ${card}                                                                   4111 1111 1111 1111
 ${date}                                                                   0330
 ${cvv}                                                                    737
-${email}                                                                  laylla+fr1@youse.com.br
+${email}                                                                  laylla+sn13@youse.com.br
 ${vin}                                                                    9BD135019B2176469
 ${senha_auto}                                                             Youse123*
 ${name}                                                                   Mauro Youser
@@ -55,17 +55,18 @@ Validando que estou na tela inicial
 
 
 DADO que preenchi os dados do segurado e motorista 
-    [Arguments]          ${name}    ${CPF}      ${email}    ${TELEFONEFAKE}     
+    [Arguments]          ${name}    ${CPF}      ${email}        
     
     ${name}                     FakerLibrary.Name
-    ${TELEFONEFAKE}             FakerLibrary.Phone Number
+    # ${TELEFONEFAKE}             FakerLibrary.Phone Number
 
     # sleep  2
     Input Text                                  css:input[id="insuredPersonName"]           ${name}
     Click Element                               css:input[type='tel']       
     Input Text                                  css:input[type='tel']                        ${CPF}
     Input Text                                  css:input[type='email']                      ${email}
-    Input Text                                  css:input[type='phone']                      ${TELEFONEFAKE}
+    sleep     10
+    Input Text                                  css:input[type='phone']                      1195869-2052
     # sleep   1
     Click Element                               id:insuredPersonMaritalStatus                        
     Click Element                               css:li[role="option"][data-value="single"]  
@@ -389,7 +390,7 @@ Dado que selecionei cotar auto
 
 E passei os dados do segurado     
     ${name}                     FakerLibrary.Name
-    ${TELEFONEFAKE}             FakerLibrary.Phone Number
+    # ${TELEFONEFAKE}             FakerLibrary.Phone Number
 
     Wait Until Element Is Visible        css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_name"]
     
@@ -400,7 +401,10 @@ E passei os dados do segurado
     input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_email"]        ${email}
 
     Wait Until Element Is Visible       css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]
-    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]       ${TELEFONEFAKE}  
+    input text                          css:input[id="auto_order_flow_lead_person_data_lead_person_attributes_phone"]       11 958692052
+    
+    sleep    10
+
 
     Wait Until Element Is Visible       css:input[value="Continuar"]
     Click Element                       css:input[value="Continuar"]
